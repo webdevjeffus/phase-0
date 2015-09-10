@@ -1,6 +1,7 @@
- Website Reflections - Week 1
-by Jeff George for Dev Bootcamp Phase 0
-September 10, 2015
+# Website Reflections - Week 1
+
+***by Jeff George for Dev Bootcamp Phase 0
+September 10, 2015***
 
 ### Paste a link to your [USERNAME].github.io repository.
 
