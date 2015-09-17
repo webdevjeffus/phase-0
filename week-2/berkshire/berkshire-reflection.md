@@ -1,4 +1,4 @@
-#Reflection Questions
+# Berkshire HTML Reflection Questions
 ### By Jeff George, 9.17.15, for DBC Phase 0
 
 #### What was it like to translate your previous learning with HTML into an actual site?
@@ -7,15 +7,15 @@ This was a pretty straight-forward challenge for me, as I have a fair amount of 
 
 #### How was it researching and using semantic HTML5 elements?
 
-Our intent on this project was to use semantic tags as much as possible, and to avoid <div> tags except when absolutely necessary to group elements into stylable blocks. We set the file up using <header>, <main>, and <footer> tags to separate major semantic sections of the page. During our pair session, we used <div> tags to group elements within the <main> and <footer> in anticipation of styling with CSS. For example, we divided the list of links into to <ul> unlinked lists, each in a separate <div>, so that we could style them with floats to display as two columns.
+Our intent on this project was to use semantic tags as much as possible, and to avoid **div** tags except when absolutely necessary to group elements into stylable blocks. We set the file up using **header**, **main**, and **footer** tags to separate major semantic sections of the page. During our pair session, we used **div** tags to group elements within the **main** and **footer** in anticipation of styling with CSS. For example, we divided the list of links into to **ul** unlinked lists, each in a separate **div**, so that we could style them with floats to display as two columns.
 
-After the session, upon reviewing the file, I realized that in most cases, we could logically use <section> tags in place of the <div> tags we had originally used. For example, again in the two-column list of links, I replaced the <div> tags with <section> tags, as it made sense to me that we were dividing the list into two "sections." (I will send a copy of this file, with my post-session changes, to my partner, so that he can decide for himself whether to make similar changes in his own version.)
+After the session, upon reviewing the file, I realized that in most cases, we could logically use **section** tags in place of the **div** tags we had originally used. For example, again in the two-column list of links, I replaced the **div** tags with **section** tags, as it made sense to me that we were dividing the list into two "sections." (I will send a copy of this file, with my post-session changes, to my partner, so that he can decide for himself whether to make similar changes in his own version.)
 
-I drank the semantic Kool-Aid months ago, and I'm very firmly in the camp that believes that HTML should focus on document structure, and include no styling instructions at all. Ideally, if we've handled the semantic tagging in this document properly, we should be able to apply a variety of CSS stylesheets to it, to produce working web pages with wildly different appearances, without making any further changes to the HTML file (besides adding some class attributes). And if we've done it perfectly, we won't even have to change class names when we change stylesheets - we'll just have to change the stylesheet called for in the <link> tag.
+I drank the semantic Kool-Aid months ago, and I'm very firmly in the camp that believes that HTML should focus on document structure, and include no styling instructions at all. Ideally, if we've handled the semantic tagging in this document properly, we should be able to apply a variety of CSS stylesheets to it, to produce working web pages with wildly different appearances, without making any further changes to the HTML file (besides adding some class attributes). And if we've done it perfectly, we won't even have to change class names when we change stylesheets - we'll just have to change the stylesheet called for in the **link** tag.
 
 #### How did you do at keeping to best practices (i.e. no formatting in the HTML)
 
-I think we did a pretty thorough job of keeping styling out of the HTML document, and using the mark-up solely to define its semantic structure. At the same time, I think we managed to construct the HTML in such a way that it can be styled with CSS using relatively few classes. The only tag we used that might be considered a "styling" tag is the <b> tag around "Berkshire Hathaway Inc." in the copyright message, and I justify that on the basis that no matter how you style the page with CSS, those words will still need to be emphasized. (The case for using <b> and <i> was made in a blog post I read in CSS-Tricks sometime back; I don't have the link handy.)
+I think we did a pretty thorough job of keeping styling out of the HTML document, and using the mark-up solely to define its semantic structure. At the same time, I think we managed to construct the HTML in such a way that it can be styled with CSS using relatively few classes. The only tag we used that might be considered a "styling" tag is the **b** tag around "Berkshire Hathaway Inc." in the copyright message, and I justify that on the basis that no matter how you style the page with CSS, those words will still need to be emphasized. (The case for using **b** and **i** was made in a blog post I read in CSS-Tricks sometime back; I don't have the link handy.)
 
 #### What seems good and bad about HTML?
 
@@ -26,11 +26,11 @@ The thing that I've found most frustrating about vanilla HTML in the past didn't
 #### What tricks do you have for remembering how to write HTML?
 
 **_A few tips, in no particular order:_**
-* Template whatever you can. (For example, you can pull most of your <head> from a similar document.)
+* Template whatever you can. (For example, you can pull most of your **head** from a similar document.)
 * Look for content that groups together logically, and use appropriate semantic tags to put them into blocks to facilitate later styling.
 * In Sublime, pressing TAB *before* you add the closing angle-bracket to an open tag will tell Sublime to automatically enter the closing tag *and* position the cursor between the open and close tags, so you can enter the content right away.
-* Don't use the horizontal rule tag <hr>. Set up your sections (or divs, if you must) to let you use border-top or border-bottom in the CSS to create dividers on your page. This will make the HTML page more friendly to future style revisions.
+* Don't use the horizontal rule tag **hr**. Set up your sections (or divs, if you must) to let you use border-top or border-bottom in the CSS to create dividers on your page. This will make the HTML page more friendly to future style revisions.
 * Use relative links for resources within the website, like media files, so that the entire website is more portable. You don't want to have to re-write the links when you upload the site to a server with a different URL and directory structure than your development system.
 * Save early and often. Look at it in a browser from time to time as you work, to be sure you haven't broken it somehow.
 * Use an HTML validator to find your errors quickly.
-* Every <img> needs an alt attribute.
+* Every **img** needs an alt attribute.
