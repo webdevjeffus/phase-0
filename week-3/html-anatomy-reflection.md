@@ -1,0 +1,25 @@
+# Anatomy of HTML Reflection - GPS 1.2
+### By Jeff George, 9.21.15, for DBC Phase 0
+
+#### What HTML5 tags have you used in this challenge and continue to return to often? Why?
+
+I was already somewhat familiar with the semantic tags in HTML, including **header, footer, nav, main, article, section,** and **aside,** and used them in my HTML pages whenever possible, and avoiding **div** tags unless absolutely no other tag fit the usage. In the follow up to this challenge, I did a little bit of research into the **meta** element, and incorporated it more fully into my personal HTML file-starting snippet, including **meta** elements for author, description, and keywords.
+
+
+#### How do elements get laid out on a page? What is the order the browser uses to display elements?
+
+By default, browsers present elements in the order they appear in the HTML document, from the first item to the last. Block elements are displayed in a vertical stack against the left edge of the browser, by default, and inline elements get set in rows from left to right. Of course, it is possible to use various CSS properties, including but not limited to **position, table, float, text-align,** and **order,** to rearrange the elements on the page as displayed in the browser.
+
+
+#### What did you learn about Sublime in this challenge? Do you think you'll create more handy snippets at a later date? What about research some shortcuts that already exist?
+
+Prior to this challenge, I had only the vaguest idea that Sublime snippets even existed, let alone how to use them. During the challenge, my partner and I both created snippets and saved them to our User package directories, but couldn't make them work properly. We thought at the time that it might have something to do with how or where we were saving them, but we were unable to figure out the problem within a reasonable time during the GPS challenge. Not surprisingly, though, we both found the problem almost simultaneously, within minutes after the "official" pair session time had ended. The problem was that we had both enabled the **scope** element in the snippet code, and set it to "source.html". We were working together to research the answer after the session, and eventually found that the proper value for the **scope** element for a .html file is "text.html". Once we made this correction, both of our snippets started working perfectly.
+
+
+#### Additional reflection
+
+I'm especially grateful to my peer-partner and our guide during this challenge for helping me to better understand git branches, and to correct a bad practice I had developed. Early in week 1, I had somehow created a conflict within a git repo, and had to spend at least a couple of hours figuring out how to resolve it. Somehow, I got the impression that the error was caused by "re-using" a branch name after having completed a commit-push-merge-pull cycle. After that experience, I started deleting my feature branches, both local and on GitHub, after each commit-push-merge-pull. This worked alright for me while I was working alone, but even alone, I was building up long lists of "used" branch names that would appear on the list when I did a **git branch -a**, despite the fact that the old branches had been deleted from both my machine and GitHub's server. I suspect that my local git log is storing a list of the remote branches created which doesn't get updated when branches on GitHub are deleted, but I'll need to do further reading to verify that theory.
+
+In any case, Gary (our guide) and Joe (my partner) both saw that I was following a branch-naming procedure that used dates and numbers, instead of descriptive names. When they asked me why I was doing it that way, I briefly explained that it was necessary to help me keep track of the large number of branch names that I was creating, using, and discarding every day. I asked Gary if it was safe to "re-use" an existing branch after a commit-push-merge-pull, because I had believed that doing so had caused the repo-conflict I'd had to deal with in week 1. Gary assured me that it was not only safe, but it was a best practice to do so, and that if the branches have been properly merged and the local master updated to match the origin/master, there should be no conflict caused by continuing to use a descriptively-named branch through any number of merges and pulls.
+
+Even though this clarification of git branching best practices was not part of the planned content for this challenge, it was the most valuable take-away for me, aside from learning how to create and use snippets in Sublime. It really is an example of how an individual working alone and teaching oneself can easily develop bad habits as a result of an unnecessary or inefficient work-around for a problem encountered so early on their learning curve that they don't know what happened or why. If I kept working alone, I could have gone on for months without realizing I wasn't following best practices &mdash; only by working closely with other programmers was I able to discover and correct my bad habit.
