@@ -1,119 +1,3 @@
-html {
-  background-color: #fff;
-  color: #000080;
-}
-
-a {
-  color: #800080;
-}
-
-a:visited {
-  color: #f00;
-}
-
-td {
-  border: 0px green solid;
-}
-
-p {
-  margin: 0.75em 0 0 0;
-}
-
-h1,
-h2 {
-  margin: 0;
-}
-
-.rule {
-  border-bottom: 2px #eee groove;
-}
-
-/* HEADER ************************/
-
-header {
-  font-weight: bold;
-  text-align: center;
-  font-size: .55em;
-}
-
-.header--cap {
-  font-size: 1.8em;
-}
-
-.header--inc  {
-  font-size: 0.75em;
-}
-
-.header--logo {
-  display: block;
-}
-
-.header--addr {
-  font-size: .75em;
-  display: block;
-}
-
-/* MAIN *************************/
-
-.main--header {
-  text-align: center;
-  font-size: 1em;
-  padding-bottom: 1em;
-}
-
-table {
-  padding: 0 3em 1.5em;
-
-}
-
-td {
-  vertical-align: top;
-  width: 50%;
-  padding: 0em 1em;
-  height: 3em;
-}
-
-.table--item {
-  text-indent: -0.75em;
-}
-
-.table--desc {
-  font-size: 0.65em;
-  color: #000080;
-  margin: 0;
-}
-
-.ad--text {
-  text-align: center;
-  margin: 0 auto;
-  font-size: .65em;
-}
-.ad {
-  text-align: center;
-  padding: 1.3em 0;
-}
-.ad--img {
-  width: 4.5em;
-}
-
-
-/* FOOTER ******************************/
-
-.ftr--txt {
-  font-size: 0.8em;
-  margin: 1.5em 0;
-}
-
-.ftr--copy {
-  font-size: 0.65em;
-  margin: 1.5em 0;
-}
-
-/* REFLECTION ********************
-
-Note: You will find more readable version of this reflection formatted as a stand-alone markdown file at:
-https://github.com/webdevjeffus/phase-0/tree/master/week-3/berkshire-3-reflection.md
-
 # Berkshire CSS Reflection
 ### By Jeff George, 9.23.15, for DBC Phase 0
 
@@ -123,7 +7,7 @@ Obviously, you need to know the type of file you're linking, and you have to hav
 
 #### What tricks did you use to help you with positioning? How hard was it to get the site as you wanted it?
 
-For most of the positioning, we were able to get what we wanted done with simple margins and padding. As we started, we "reset" the margins of <p>, <h1>, and <h2> to 0 all around, so we'd be working on a known foundation; we later pushed the top margin only of the generic <p> element back up to 0.75em, to put space between paragraphs by default.
+For most of the positioning, we were able to get what we wanted done with simple margins and padding. As we started, we "reset" the margins of **p**, **h1**, and **h2** to 0 all around, so we'd be working on a known foundation; we later pushed the top margin only of the generic **p** element back up to 0.75em, to put space between paragraphs by default.
 
 Since we did _not_ use lists in our table (separate, single item lists in each table cell seemed like an ugly hack to us) we had to insert the bullets by hand as entities. This pushed the first line of text in each cell, the link, back from the margin. At first, we compensated for this by adding padding-left to the class for the underline in the cells that had subscript descriptions, adjusting the amount of padding until the two lines of text aligned.
 
@@ -163,5 +47,3 @@ Our code was a thousand times cleaner and "best-practicey" than the original cod
 * In the footer, the original code inappropriately uses a **dt** tag, nested inside a **dl**, just to make the copyright notice small. This should have been done with a **p** tag and either a CSS class that adjusts the **font-size** property (if you're doing it the right way), or an HTML **font** tag (if you're doing it how they do things in Omaha).
 
 I'm sure there's more wrong with it, but it's getting late here...
-
-*/
