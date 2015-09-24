@@ -1,0 +1,111 @@
+html {
+  background-color: #fff;
+  color: #000080;
+}
+
+a {
+    color: #800080;
+}
+
+a:visited {
+    color: #f00;
+}
+
+td {
+  border: 0px green solid;
+}
+
+p {
+  margin: 0.75em 0 0 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.rule {
+  border-bottom: 2px #eee groove;
+}
+
+/* HEADER ************************/
+
+header {
+  font-weight: bold;
+  text-align: center;
+  font-size: .55em;
+}
+
+.header--cap {
+  font-size: 1.8em;
+}
+
+.header--inc  {
+  font-size: 0.75em;
+}
+
+.header--logo {
+ display: block;
+}
+
+.header--addr {
+  font-size: .75em;
+  display: block;
+}
+
+/* MAIN *************************/
+
+.main--header {
+  text-align: center;
+  font-size: 1em;
+  padding-bottom: 1em;
+}
+
+table {
+  padding: 0 3em 1.5em;
+
+}
+
+td {
+  vertical-align: top;
+  width: 50%;
+  padding: 0em 1em;
+  height: 3em;
+}
+
+.table--item {
+  text-indent: -0.75em;
+}
+
+.table--desc {
+  font-size: 0.65em;
+  color: #000080;
+  /* padding-left: .2em; */
+  margin: 0;
+}
+
+.ad--text {
+  text-align: center;
+  margin: 0 auto;
+  font-size: .65em;
+}
+.ad {
+  text-align: center;
+  padding: 1.3em 0;
+}
+.ad--img {
+  width: 75px;
+}
+
+
+/* FOOTER ******************************/
+
+.ftr--txt {
+  font-size: 0.8em;
+  margin: 1.5em 0;
+}
+
+.ftr--copy {
+  font-size: 0.65em;
+  margin: 1.5em 0;
+}
