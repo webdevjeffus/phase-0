@@ -18,7 +18,7 @@ After our pair session ended, however, I noticed that when the link line wrapped
 
 I _think_ this question is just asking for some of the CSS properties we used. Here's a list:
 * **font-size** was used a lot, and always with ems, to adjust the size of the font.
-* **font-weight: bold; was used to set the masthead text to bold.
+* **font-weight: bold;** was used to set the masthead text to bold.
 * **margin** and **padding** were also used frequently, with ems; often used to set margin or padding on just one side of an element.
 * **text-align: center;** came up often, since much of the text is centered.
 * **vertical-align: top;** pushed the table cell contents to the top of each cell, so it would align neatly.

@@ -123,7 +123,7 @@ Obviously, you need to know the type of file you're linking, and you have to hav
 
 #### What tricks did you use to help you with positioning? How hard was it to get the site as you wanted it?
 
-For most of the positioning, we were able to get what we wanted done with simple margins and padding. As we started, we "reset" the margins of <p>, <h1>, and <h2> to 0 all around, so we'd be working on a known foundation; we later pushed the top margin only of the generic <p> element back up to 0.75em, to put space between paragraphs by default.
+For most of the positioning, we were able to get what we wanted done with simple margins and padding. As we started, we "reset" the margins of **p**, **h1**, and **h2** to 0 all around, so we'd be working on a known foundation; we later pushed the top margin only of the generic **p** element back up to 0.75em, to put space between paragraphs by default.
 
 Since we did _not_ use lists in our table (separate, single item lists in each table cell seemed like an ugly hack to us) we had to insert the bullets by hand as entities. This pushed the first line of text in each cell, the link, back from the margin. At first, we compensated for this by adding padding-left to the class for the underline in the cells that had subscript descriptions, adjusting the amount of padding until the two lines of text aligned.
 
@@ -134,7 +134,7 @@ After our pair session ended, however, I noticed that when the link line wrapped
 
 I _think_ this question is just asking for some of the CSS properties we used. Here's a list:
 * **font-size** was used a lot, and always with ems, to adjust the size of the font.
-* **font-weight: bold; was used to set the masthead text to bold.
+* **font-weight: bold;** was used to set the masthead text to bold.
 * **margin** and **padding** were also used frequently, with ems; often used to set margin or padding on just one side of an element.
 * **text-align: center;** came up often, since much of the text is centered.
 * **vertical-align: top;** pushed the table cell contents to the top of each cell, so it would align neatly.
