@@ -1,0 +1,85 @@
+html {
+  background-color: #fff;
+  color: #000080;
+}
+
+a {
+    color: #800080;
+}
+
+a:visited {
+    color: #f00;
+}
+
+td {
+  border: 0px green solid;
+}
+
+p {
+  margin: 0.75em 0 0 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.rule {
+  border-bottom: 2px gray inset;
+}
+
+/* HEADER ************************/
+
+header {
+  font-weight: bold;
+  text-align: center;
+}
+.header--cap {
+  font-size: 2em;
+}
+.header--logo {
+ display: block;
+}
+.header--addr {
+  font-size: .75em;
+  display: block;
+}
+
+/* MAIN *************************/
+
+.main--header {
+  text-align: center;
+  font-size: 2em;
+}
+
+td {
+  vertical-align: top;
+  width: 50%;
+}
+
+
+
+.table--desc {
+  font-size: 0.75em;
+  color: #000080;
+  padding-left: .75em;
+  margin: 0;
+}
+
+.table--item {
+
+}
+
+.ad--text {
+  text-align: center;
+  margin: 0 auto;
+  font-size: .75em;
+}
+.ad {
+  text-align: center;
+  padding: 1.3em 0;
+}
+.ad--img {
+  width: 75px;
+
+}
