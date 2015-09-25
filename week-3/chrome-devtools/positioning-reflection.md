@@ -5,11 +5,11 @@
 
 #### 1. Color
 
-<img src="pp3-4-1-colors.png">
+![Exercise 1. Color](/imgs/pp3-4-1-colors.png)
 
 #### 2. Column
 
-<img src="pp3-4-2-column.png">
+![Exercise 2. Column](/imgs/pp3-4-2-column.png)
 
 #### How can you use Chrome's DevTools inspector to help you format or position elements?
 
