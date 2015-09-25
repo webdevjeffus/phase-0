@@ -18,7 +18,7 @@
 
 #### 4. Equidistant (using margin and padding)
 
-![Exercise 4. Equidistant](./imgs/pp3-4-equid-mg-pd.png)
+![Exercise 4. Equidistant](./imgs/pp3-4-4-equid-mg-pd.png)
 
 #### 4. Equidistant (using positioning)
 
