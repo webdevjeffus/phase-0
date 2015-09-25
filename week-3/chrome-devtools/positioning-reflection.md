@@ -7,9 +7,46 @@
 
 ![Exercise 1. Color](./imgs/pp3-4-1-colors.png)
 
+
 #### 2. Column
 
 ![Exercise 2. Column](./imgs/pp3-4-2-column.png)
+
+#### 3. Row
+
+![Exercise 2. Row](./imgs/pp3-4-3-row.png)
+
+#### 4. Equidistant (using margin and padding)
+
+![Exercise 4. Equidistant](./imgs/pp3-4-equid-mg-pd.png)
+
+#### 4. Equidistant (using positioning)
+
+![Exercise 4. Equidistant](./imgs/pp3-4-4-equid-pos.png)
+
+#### 5. Squares
+
+![Exercise 5. Squares](./imgs/pp3-4-5-squares.png)
+
+#### 6. Footer
+
+![Exercise 6. Footer](./imgs/pp3-4-6-footer.png)
+
+#### 7. Header
+
+![Exercise 7. Header](./imgs/pp3-4-7-header.png)
+
+#### 8. Sidebar
+
+![Exercise 8. Sidebar](./imgs/pp3-4-8-side.png)
+
+#### 9. Get Creative (Four cards)
+
+![Exercise 9. Cards](./imgs/pp3-4-9-cards.png)
+
+#### 9. Get Creative (Cards in a box)
+
+![Exercise 9. Cards in a box](./imgs/pp3-4-9-cards-in-box.png)
 
 #### How can you use Chrome's DevTools inspector to help you format or position elements?
 
