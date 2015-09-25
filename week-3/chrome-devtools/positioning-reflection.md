@@ -90,6 +90,7 @@ In order to be sure box-sizing is set to content-box on all elements, include th
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
