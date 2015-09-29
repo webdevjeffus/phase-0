@@ -1,0 +1,12 @@
+# CSS REFLECTION - GPS 2.1
+### BY Jeff George, 9.28.15, for DBC Phase 0
+
+## Reflect on your learning. Did you feel more confident with CSS positioning? How did you do with the learning competencies in general?
+
+The CSS tasks required by this challenge were actually pretty basic, compared to some of what my partner and I had done last week in our personal websites. For this assignment, we gave the header and footer dimensions and a background color, to separate them from the rest of the document, and used margins and padding to nudge the text away from the edges of their parent elements. We used text-align: center; to center the footer text.
+
+The two columns needed width and margins, then we were able to use float: left; to put them next to each other. In order to position the footer properly below the columns, we applied a clear: both; to it. Because the rules of the assignment required that we _not_ edit the HTML file, we weren't allowed to do what I normally would have done to create the two column format &mdash; put the two columns in **sections** inside a parent **section**, so that a clearfix class could be applied to that, instead of assigning it to the footer. This would have also avoided the necessity of adding the right margin to the right column, which we put there just to make sure the columns and gutters all added up to 100%, preventing any other elements from wrapping onto the same row as the columns.
+
+Because of the don't-edit-the-HTML rule, we were styling elements directly, something I would avoid doing unless absolutely necessary in "real" projects. Under more normal circumstances, I'd have used classes for most of this styling.
+
+The real gold in this session, however, was when Adell (our guide) showed us that we can open a project in DevTools, edit them there, and then save the changes directly to the actual source files from within Dev Tools! I had no idea this was possible, and it's hugely powerful for letting you see changes in your files reflected instantly in the browser. My partner, Jeremy, was driving when Adell showed us this, so it went by quickly, but I plan to try it out myself as soon as I get done with the requirements for this challenge.
