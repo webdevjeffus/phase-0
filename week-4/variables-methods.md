@@ -1,7 +1,3 @@
-#### Note
-# For ease of reading, a copy of this file, in markdown format,
-# is saved in this directory as variables-methods.md
-
 # 4.3 Variables and Methods
 ### by Jeff George, 9.29.15, for DBC Phase 0
 
@@ -9,6 +5,7 @@
 
 #### Full-Name Greeter
 
+```ruby
 puts "What is your first name?"
 first_name = gets.chomp
 
@@ -19,18 +16,18 @@ puts "What is your last name?"
 last_name = gets.chomp
 
 puts "Salutations, " + first_name + " " + middle_name + " " + last_name + "."
+```
 
 #### Bigger, better number
 
+```ruby
 puts "What's your favorite number?"
 fav_num = gets.chomp
 
 better_num = fav_num.to_i + 1
 
 puts "Wouldn't " + better_num.to_s + " be an even better favorite number?"
-
-
-=begin
+```
 
 ## Challenge Solutions:
 
@@ -41,6 +38,7 @@ https://github.com/webdevjeffus/phase-0/blob/master/week-4/address/my_solution.r
 #### Defining Math Methods
 
 https://github.com/webdevjeffus/phase-0/blob/master/week-4/math/my_solution.rb
+
 
 
 ## Reflection Questions
@@ -62,16 +60,19 @@ A local variable is a variable that is created within a method (or other code bl
 
 To run a ruby program from the command line, you simply enter "ruby" (or "rb"), followed by the full name of the file, including the .rb extension, at the terminal prompt. For example, to run the program **hello_world.rb**, you would type the following, and then hit ENTER:
 
+```ruby
 ruby hello_world.rb
+```
 
 #### How do you run an RSpec file from the command line?
 
 To run an rspec file from the command line, you enter "rspec" followed by the full file name, again including the .rb extension. To run the RSpec file hello_world_spec.rb, enter:
 
+```ruby
 rspec hello_world_spec.rb
+```
 
 #### What was confusing about this material? What made sense?
 
 Most of the programming concepts in this challenge were already familiar to me, so my main concern was getting the ruby syntax down. I still struggle to remember exactly what keywords, punctuation marks, and line returns are required in any given situation. I solve these concerns in two ways; sometimes I check books or online references for proper syntax, and sometimes I just make my best guess and then run the program to see if it works. If it doesn't, I use the error messages to track down where I messed up.
 
-=end
