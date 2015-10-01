@@ -236,7 +236,7 @@ def cartmans_lie(lie, name)
   puts "#{lie}, #{name}!"
 end
 
-cartmans_lie('A meteor the size of the earth is about to hit Wyoming!', 'Butters')
+cartmans_lie('A meteor the size of the earth is about to hit Wyoming!')
 ```
 
 _1. What is the line number where the error occurs?_
