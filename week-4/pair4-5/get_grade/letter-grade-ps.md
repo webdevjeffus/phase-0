@@ -1,8 +1,6 @@
-# Pseudocode for Get Grade Challenge
+# Pseudocode for Letter Grade Challenge
 
-PRINT Enter a grade?
 
-INPUT a numeric grade
 
 IF grade below 60, grade is F
 ELSE grade below 70, grade is D

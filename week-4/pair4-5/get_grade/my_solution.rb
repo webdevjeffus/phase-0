@@ -1,7 +1,6 @@
 # Calculate a Grade
 
-# I worked on this challenge Jeff/Max.
-
+# I worked on this challenge with Max Iniguez.
 
 # Your Solution Below
 
