@@ -1,6 +1,6 @@
 # Largest Integer
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge by myself.
 
 # largest_integer is a method that takes an array of integers as its input
 # and returns the largest integer in the array
