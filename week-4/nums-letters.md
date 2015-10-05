@@ -1,6 +1,13 @@
 # Ch. 4.2 Numbers, Letters and Variable Assignment
 ### By Jeff George, 9.29.15, for DBC Phase 0
 
+## Solutions to sub-challenges
+
+* [Defining Variables](https://github.com/webdevjeffus/phase-0/blob/master/week-4/defining-variables.rb)
+* [Simple String Methods](https://github.com/webdevjeffus/phase-0/blob/master/week-4/simple-string.rb)
+* [Local Variables and Basic Arithmetical Operations](https://github.com/webdevjeffus/phase-0/blob/master/week-4/basic-math.rb)
+
+
 ## Numbers
 
 #### What does **puts** do?
