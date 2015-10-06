@@ -1,128 +1,117 @@
-# GPS 2.2: Ruby - Electronic Grocery List
-# by Jeff George, with guide Gary Sperba
-# (Pair partner was unable to participate in GPS session)
-# Reflections at end of file
-# Pseudocode (with reflection questions) can be accessed as markdown at:
-# https://github.com/webdevjeffus/phase-0/blob/master/week-5/gps2-2/grocery_list_ps.md
+# GPS 2.2: Ruby - Pseudocode for Electronic Grocery List
+#### by Jeff George, with guide Gary Sperba
+#### (Pair partner was unable to participate in GPS session)
+
+Reflections at end of file.
+
+[Solution as Ruby Code](https://github.com/webdevjeffus/phase-0/blob/master/week-5/gps2-2/gps2_2.rb)
 
 
-# 1. Create a new list
-def create_list
-  {}
+### Create a new list
+```
+def create_list(name)
+
+  CREATE an empty list as a hash/dictionary
+
 end
+```
 
 
-# 2. Add an item with a quantity to the list
+### Add an item with a quantity to the list
+```
 def add_item(hash, item, qty)
 
-  if hash.has_key?(item)
-    hash[ item ] += qty
-  else
-    hash[ item ] = qty
-  end
+  IF item is on list
+    INCREASE quantity on list by qty
+
+
+  ELSE (item is NOT on list)
+    ADD key to list and SET quantity on list equal to qty
+
+  END "if"
 
 end
+```
 
-# 3. Remove an item from the list
+
+### Remove an item from the list
+```
 def remove_item(hash, item)
-  hash.delete(item)
+
+  DELETE item by key
+
 end
+```
 
-# 4. Update quantities for items in your list, initial version
-# def update_item(hash, item, qty)
-#
-#   if hash.has_key?(item)
-#     hash[ item ] = qty
-#   else
-#     hash[ item ] = qty
-#   end
-#
-# end
 
-# 4. Update quantities for items in your list, refactored version
+### Update (overwrite) quantities for items in your list
+(First version; works, but doesn't actually need conditional)
+```
 def update_item(hash, item, qty)
-    hash[ item ] = qty
+
+  IF item is on list
+    SET value equal to qty
+
+  ELSE (item is NOT on list)
+    ADD key to list and SET quantity on list equal to qty
+
+  END "if"
+
+end
+```
+
+(Second version; unnecessary conditional removed)
+```
+def update_item(hash, item, qty)
+
+  SET value equal to qty
+
+end
+```
+
+
+
+### Print a formatted version of the list
+
+(Initial version - Very basic, no formatting)
+```
+def print_list(hash)
+
+  FOR EACH key-value pair in hash
+
+    PRINT key + leader + value
+
+  END EACH LOOP
+
+end
+```
+
+(Refactored version - With lined-up columns, rules, header and footer )
+```
+def leader(width, separator, str_0, str_1)
+
+  SET number of separator chars equal to width - (length of str_0 + length of str_1)
+
 end
 
-#5. Print the list (Consider how to make it look nice!)
-#   Original version, including supporting methods, except where noted
-def leader(cols, separator, str_0, str_1)
-  separator * (cols - str_0.length - str_1.length)
-end
 
-
-def total_items(hash)
-  total = 0
-
-  hash.each { |k, v|
-    total += v
-  }
-
-  return total
-end
-
-# Initial version
 def print_list(hash, width)
 
-  print "ITEM" + leader(width, " ", "ITEM", "QUANTITY") + "QUANTITY" + "\n"
-  print ( "=" * width ) + "\n"
+  PRINT header
+  PRINT horizontal rule
 
-  hash.each{ |k, v|
-    print k.to_s + leader(width, ".", k, v.to_s) + v.to_s + "\n"
-  }
+  FOR EACH key-value pair in hash
 
-  print ( "-" * width ) + "\n"
-  print "Total Items" + leader(width, " ", "Total Items", total_items(hash).to_s) + total_items(hash).to_s + "\n"
+    PRINT key + leader + value
 
-end
+  END EACH LOOP
 
-# Refactored version, with supporting methods
-def header_footer(width, col_1, col_2)
-  print col_1.to_s + leader(width, " ", col_1.to_s, col_2.to_s) + col_2.to_s + "\n"
-end
-
-def horiz_rule(width, separator="-")
-  print ( separator * width ) + "\n"
-end
-
-def print_list(hash, width)
-
-  header_footer(width, "ITEM", "QUANTITY")
-  horiz_rule(width, "=" )
-
-  hash.each{ |k, v|
-    print k.to_s + leader(width, ".", k, v.to_s) + v.to_s + "\n"
-  }
-
-  horiz_rule(width)
-  header_footer(width, "Total Items", total_items(hash).to_s)
+  PRINT horizontal rule
+  PRINT footer
 
 end
+```
 
-#TESTS
-
-#Create list
-new_list = create_list
-
-# Populate list
-add_item(new_list, "Lemonade", 2)
-add_item(new_list, "Tomatoes", 3)
-add_item(new_list, "Onions", 1)
-add_item(new_list, "Ice Cream", 4)
-
-# Print list
-print_list(new_list, 25)
-
-# Manipulate list
-add_item(new_list, "Tomatoes", 20)
-remove_item(new_list, "Lemonade")
-update_item(new_list, "Ice Cream", 1)
-
-# Print list
-print_list(new_list, 25)
-
-
-=begin
 
 ## REFLECTION QUESTIONS
 
@@ -156,5 +145,3 @@ In general, information is passed between methods using variables, which must li
 I'm getting more familiar with Ruby syntax and common methods as we work along. For example, the "each" method was strange to me at first, but now I'm using it pretty easily. I'm also getting more comfortable with the general practice of making code more DRY by writing methods that replace repetitive code and make the program generally more readable. I think you can see this in my refactoring of the print_list method, in which I managed to replace a handful of nearly-identical lines of code with reusable methods.
 
 I really don't have a super-strong handle on hashes yet, though. I feel somewhat more in control of them after completing this challenge than I did before, but there are still aspects of them that are mysterious to me. For example, as I started this challenge, I was trying to use symbols as my keys, but for some reason, they were causing errors I couldn't solve. Gary had me shift to using strings as keys, and amazingly, those errors suddenly disappeared. I would think that the problem was just me, making mistakes with symbol syntax, but Gary said that using symbols as hash keys doesn't always work out. (He may have quickly explained a bit of why this is the case, but I didn't fully understand the reason, and didn't want to stop progress in the challenge to dive into a rabbit hole.) I definitely need to do more reading and more practice with hashes, and their keys and values.
-
-=end
