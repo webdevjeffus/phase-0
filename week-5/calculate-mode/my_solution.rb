@@ -45,38 +45,19 @@ def mode(array)
 
 end
 
-def mode(array)
-
-  out_array = []
-  mode_hash = Hash.new(0)
-
-  array.each do | item |
-    mode_hash[item] += 1
-  end
-
-#  highest = 0
-#  mode_hash.each do |key, value|
-#    if value >= highest
-#      highest = value
-#    end
-#  end
-
-  out_array = mode_hash.max_by {|key, value| value}
-
-#  mode_hash.each do |key, value|
-#    if value == highest
-#      out_array << key
-#    end
-#  end
-
-  return out_array
-
-end
 
 
 # 3. Refactored Solution
 
+def mode(array)
 
+  mode_hash = Hash.new(0)
+
+  array.each { | item | mode_hash[item] += 1 }
+
+  mode_hash.select{ |k,v| v == mode_hash.values.max}.keys
+
+end
 
 
 # 4. Reflection
