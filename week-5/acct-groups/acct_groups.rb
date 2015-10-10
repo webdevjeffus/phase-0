@@ -1,58 +1,54 @@
 def create_acct_groups(list)
-
-  list = list.shuffle
-
-  if list.length % 5 == 0
-    groups = allocate(list)
-
-  else
-    groups = allocate(list)
-    balance_groups(groups)
-  end
-
-
+  groups = allocate(list.shuffle)
+  balance_groups(groups) if groups[-1].length % 5 != 0
+  return groups
 end
 
 
 def allocate(list)
-
   groups = []
   group = 0
 
-  until list.length == 0
+  until list.length <= 0
     groups << []
 
     for i in 0..4
-      if list.length > 0
-        groups[group][i] = list.shift
-      end
+      groups[group][i] = list.shift if list.length > 0
     end
 
-
     group += 1
-
   end
-  return groups
 
+  return groups
 end
 
 
 def balance_groups(groups)
+  shift_member(groups, -2, -1) if groups[-1].length  <= 3
+  shift_member(groups, -3, -1) if groups[-1].length  <= 3
+  shift_member(groups, -4, -1) if groups[-1].length  <= 3
+end
 
-  if groups[-1].length  == 3
-    groups[-1] << groups[-2].pop
-  elsif groups[-1].length == 2
-    groups[-1] << groups[-2].pop
-    groups[-1] << groups[-3].pop
-  elsif groups[-1].length == 1
-    groups[-1] << groups[-2].pop
-    groups[-1] << groups[-3].pop
-    groups[-1] << groups[-4].pop
-  else # groups % 5 == 4, leave groups as is
+
+def shift_member(groups, grp_from, grp_to)
+  groups[grp_to] << groups[grp_from].pop
+end
+
+
+def print_groups(groups)
+  puts
+  puts "================================"
+  puts "Number of students: " + groups.flatten.length.to_s
+  puts "Number of groups: " + groups.length.to_s
+
+  for i in 1..groups.length
+    puts "================================"
+    puts "Accountability Group " + i.to_s
+    puts groups[i-1].length.to_s + " members"
+    puts "--------------------------------"
+    puts groups[i-1]
+    puts
   end
-
-  return groups
-
 end
 
 
@@ -77,16 +73,5 @@ copperheads = [
 
 acct_groups = create_acct_groups(copperheads)
 
-puts
-puts "================================"
-puts "Number of students: " + copperheads.length.to_s
-puts "Number of groups: " + acct_groups.length.to_s
+print_groups(acct_groups)
 
-for i in 1..acct_groups.length
-  puts "================================"
-  puts "Accountability Group " + i.to_s
-  puts acct_groups[i-1].length.to_s + " members"
-  puts "--------------------------------"
-  puts acct_groups[i-1]
-  puts
-end
