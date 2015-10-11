@@ -4,10 +4,10 @@
 
 # I spent 4 hours on this challenge, including reading and research.
 
-
+##########################################################################
 # NOTE: There is an easy-to-read version of this file in markdown format at:
 # https://github.com/webdevjeffus/phase-0/blob/master/week-5/die-class/die_refl.md
-
+##########################################################################
 
 # 0. Pseudocode
 
@@ -63,10 +63,13 @@ end
 # The code in this class definition is so simple, there really isn't any refactoring to do.
 
 
-
+=begin
 # 4. Reflection
+
+##########################################################################
 # NOTE: There is an easy-to-read version of this file in markdown format at:
 # https://github.com/webdevjeffus/phase-0/blob/master/week-5/die-class/die_refl.md
+##########################################################################
 
 # What is an ArgumentError and why would you use one?
 
@@ -100,3 +103,4 @@ end
 # Where can an instance variable be used?
 
 # An instance variable can be used (read, written, or changed) by methods inside the instance that it belongs to, but not by any other code elsewhere in the program. In that sense, instance variables are protected from external meddling. In order to access an instance variable, it is necessary that a class or instance method exist that uses that instance variable. For example, we can't reset a pizza object's value for **@too_hot_to_eat?** directly. We can only get to it if a class or instance variable is defined that lets us do so. In the case of our pizza class, we could call the class method **my_pizza.cool_down** to allow the pizza time to cool down, thus setting **my_pizza**'s instance variable **@too_hot_to_eat?** to false. If we want to make it too hot again, we can's just reset with a direct assignment like **my_pizza@too_hot_to_eat? = true**; we'd need to define and call a **Pizza#reheat** class method to change the value of that instance variable.
+=end

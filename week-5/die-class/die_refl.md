@@ -71,7 +71,7 @@ _The code in this class definition is so simple, there really isn't any refactor
 An **ArgumentError** is caused when the arguments passed to a method do not match the parameters included in the method's definition. **ArgumentError**s are commonly raised when a method is passed too many or too few arguments, but it is possible to use the **raise** method to raise an **ArgumentError** to interrupt or abort the program flow for other problems with arguments. In our **Die#initialize** method, we raised an **ArgumentError** if **Die.new** were called with a "sides" argument with a value less than 1.
 
 
-#### What new Ruby methods did you implement? What challenges and # successes did you have in implementing them?
+#### What new Ruby methods did you implement? What challenges and successes did you have in implementing them?
 
 The two new methods (to me, at least) in this challenge were **#rand** and **#raise**. **#rand** worked exactly as I expected, based on the Ruby docs, so I had no trouble using it. **#raise** also seemed to function as I expected it to, based on my reading in the _Rubyist_, but when I tried to raise an error not just for values for **sides** that were less than 0, but also for non-integer values, my code no longer passed all the RSpec tests. In order to make it work, I had to remove the **is_a? Integer** check from the **#raise** call.
 
