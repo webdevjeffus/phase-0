@@ -5,14 +5,85 @@
 i_want_pets = ["I", "want", 3, "pets", "but", "only", "have", 2]
 my_family_pets_ages = {"Evi" => 6, "Ditto" => 3, "Hoobie" => 3, "George" => 12, "Bogart" => 4, "Poly" => 4, "Annabelle" => 0}
 
-# Person 1's solution
+# Person 1's solution (Eric Freeburg)
+
 def my_array_finding_method(source, thing_to_find)
-  source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  i = 0
+  t = 0
+  output_array = []
+
+  while i < source.length
+    if source[i].to_s.include?(thing_to_find)
+      output_array[t] = source[i].to_s
+      t += 1
+    end
+    i +=1
+  end
+
+  return output_array
 end
 
+my_array_finding_method(i_want_pets, "want") # to test
+
+=begin
+my_array_finding_method:
+Define the method along parameters (SOURCE, THING_TO_FIND)
+Instantiate the variables we will use
+i = 0 (to be used in our while loop)
+t = 0 (to be used in our if statment)
+output_array = [] (to be used for our return value(s))
+while i < source.length (to begin working through our source array)
+  IF source[i]
+    .to_s                      (converts to string)
+    .include?(thing_to_find)   (looks for thing_to_find)
+    THEN output_array[t] gets assigned the source[i].to_s
+    and t is incremented by 1
+  END
+  increment i by 1
+END
+Return the output_array
+=end
+
 def my_hash_finding_method(source, thing_to_find)
-  source # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  output_array = []
+  i = 0
+  source.each { |key,value|
+    if value == thing_to_find
+      output_array[i] = key
+      i += 1
+    end
+  }
+  return output_array
 end
+
+my_hash_finding_method(my_family_pets_ages, 12) # to test
+
+=begin
+my_hash_finding_method:
+Define the method along parameters (SOURCE, THING_TO_FIND)
+Instantiate the variables we will use
+output_array = []
+i = 0
+Iterate through the source hash along key,value
+  IF value is same as thing_to_find
+    set the output array equal to the key
+    increment i by 1
+  END
+END
+Return the output_array
+=end
+
+
+
+=begin
+RELEASE 2
+Identify and describe the Ruby method you implemented
+SEE ABOVE
+Teach your accountability group how to use the methods
+SEE ABOVE
+Share any tricks you used to find and decipher the Ruby Docs
+SEE ABOVE
+=end
 
 # Identify and describe the Ruby method(s) you implemented.
 #
