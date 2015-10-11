@@ -1,11 +1,14 @@
 # Research Methods
+# Accountability Group 11
 
-# I spent [] hours on this challenge.
+# We spent MANY hours on this challenge.
 
 i_want_pets = ["I", "want", 3, "pets", "but", "only", "have", 2]
 my_family_pets_ages = {"Evi" => 6, "Ditto" => 3, "Hoobie" => 3, "George" => 12, "Bogart" => 4, "Poly" => 4, "Annabelle" => 0}
 
-# Person 1's solution (Eric Freeburg)
+
+
+# Person 1 - Eric Freeburg =============================================
 
 def my_array_finding_method(source, thing_to_find)
   i = 0
@@ -73,8 +76,6 @@ END
 Return the output_array
 =end
 
-
-
 =begin
 RELEASE 2
 Identify and describe the Ruby method you implemented
@@ -85,12 +86,11 @@ Share any tricks you used to find and decipher the Ruby Docs
 SEE ABOVE
 =end
 
-# Identify and describe the Ruby method(s) you implemented.
-#
-#
-#
 
-# Person 2 - Max Iniguez
+
+
+# Person 2 - Max Iniguez ======================================================
+
 def my_array_modification_method!(source, thing_to_modify)
   x = 0
   while x < source.length
@@ -112,20 +112,26 @@ def my_hash_modification_method!(source, num)
 end
 
 # Identify and describe the Ruby method(s) you implemented.
-# For my array method, I honestly couldn't think of a better way to do it than
-# with a while loop. I tried .each every way I could think, but in the end, just like
-# with the .each_value for my hash method, it didn't actually collect the values.
-# I did however discover the Object#is_a? method which helped crack the first
-# part of the problem. Once the program could identify which elements of my array were
-# integers, it was fairly easy to iterate over the array for any integers in it. The methods
-# I used in the hash method (at least in my initial solution) were Hash#replace, Hash#to_a, and Array#to_h.
-# This helped me create an array of the values from my hash, add a number to each, then feed it back
-# into a hash, which overwrote the original hash using Hash#replace (thus remaining destructive). The refactor, with
-# help from Steven, was actually much simpler, and didn't require anything more than the Hash#each
+# For my array method, I honestly couldn't think of a better way to do
+# it than with a while loop. I tried .each every way I could think, but in
+# the end, just like with the .each_value for my hash method, it didn't
+# actually collect the values. I did however discover the Object#is_a?
+# method which helped crack the first part of the problem. Once the program
+# could identify which elements of my array were integers, it was fairly
+# easy to iterate over the array for any integers in it. The methods
+# I used in the hash method (at least in my initial solution) were
+# Hash#replace, Hash#to_a, and Array#to_h. This helped me create an array
+# of the values from my hash, add a number to each, then feed it back
+# into a hash, which overwrote the original hash using Hash#replace (thus
+# remaining destructive). The refactor, with help from Steven, was actually
+# much simpler, and didn't require anything more than the Hash#each
 # method. Overall, not many actual new methods were required after refactoring.
 
 
-# Person 3 - Jeff George
+
+
+# Person 3 - Jeff George ======================================================
+
 # Array sort initial solution:
 def my_array_sorting_method(source)
   source = source.partition{ |item| item.is_a? Fixnum }
@@ -140,10 +146,12 @@ def my_array_sorting_method(source)
 end
 
 # Destructive version of array sort
-# (Not the correct solution; shown for comparison to correct, non-destructive version):
+# (NOT A CORRECT SOLUTION:
+# shown for comparison to correct, non-destructive version):
 def my_array_sorting_method!(source)
   source.sort_by!{ |x| x.to_s }
 end
+
 
 # Hash sort solution
 def my_hash_sorting_method(source)
@@ -191,7 +199,8 @@ end
 
 
 
-# Person 4 - Eran Chazan
+# Person 4 - Eran Chazan ======================================================
+
 #PseudoCode for an Array
 # Accepts an array
 # iterates through the array
@@ -210,30 +219,32 @@ def my_hash_deletion_method!(source, thing_to_delete)
 source.delete_if{|pet, age| pet==thing_to_delete}
 end
 
-# Identify and describe the Ruby method(s) you implemented.
-#.delete_if => deletes every element of self which block evaluates to true.
-#.to_s => this converts an object to a string
-#.include? => this checks each object and returns true if the parameters given
+# Identify and describe the Ruby method(s) you implemented:
+# .delete_if => deletes every element of self which block evaluates to true.
+# .to_s => this converts an object to a string
+# .include? => this checks each object and returns true if the parameters given
 # is present in the object being checked
 #
-# Teach your accountability group how to use the methods
+# Teach your accountability group how to use the methods:
 # You want to use the delete_if methods when you are checking for
 # selective entries in an if statement. delete_if is like an if statement
 # in that you need to declare a function block within {} where you give it
 # an iterator and an conditional statement.
 #
-#Share any tricks you used to find and decipher the Ruby Docs
-# When looking through rubydocs I looked up that most resemble my pseudocode statement.
-# If non exist then I look for candidates that could be a susbstitute. If I still can't find
-# any, then I google what I want and see if what other people use in their solutions which I
-# then look up in the RubyDocs.
+# Share any tricks you used to find and decipher the Ruby Docs:
+# When looking through rubydocs I looked up that most resemble my pseudocode
+# statement. If non exist then I look for candidates that could be a
+# susbstitute. If I still can't find any, then I google what I want and see
+# if what other people use in their solutions which I then look up in the
+# RubyDocs.
 
 
 
 
 
 
-# Person 5 - Steven Broderick
+# Person 5 - Steven Broderick =================================================
+
 def my_array_splitting_method(source)
   source.partition { |item| item.is_a? Integer }
 end
@@ -244,35 +255,25 @@ end
 
 # Identify and describe the Ruby method(s) you implemented.
 
-# my_array_splitting_method takes an array as its argument and splits the array into two arrays, one with
-#   integers (ages, here) and one with everything else (names, in this case). Then it returns an array containing
-#   both of those arrays. The result is a 2-dimensional array. The method takes advantage of the #partition and
-#   #is_a? methods:
+# my_array_splitting_method takes an array as its argument and splits the
+#   array into two arrays, one with integers (ages, here) and one with
+#   everything else (names, in this case). Then it returns an array containing
+#   both of those arrays. The result is a 2-dimensional array. The method takes
+#   advantage of the #partition and #is_a? methods:
 
-# #partition splits the items into two arrays, putting those that match the condition into one array
-#   and those don't into the other.
+# #partition splits the items into two arrays, putting those that match the
+#   condition into one array and those don't into the other.
 
-# #is_a? takes a class name as its argument and returns true or false, depending on whether
-#   the object calling the method is a member of the argument class.
+# #is_a? takes a class name as its argument and returns true or false,
+#   depending on whether the object calling the method is a member of the
+#   argument class.
 
-# my_hash_splitting_method takes two arguments: (1) a hash that has integers for its values (ages, here) and (2)
-#   an integer (also an age, in this case). It splits the hash into two arrays, one containing the key-value pairs
-#   (as 2-element arrays) for which the value (age) is less than or equal to the "age" argument and one for everything
-#   else. Then it returns an array containing both of those arrays. The result is a 3-dimensional array. This method
-#   also takes advantage of #partition, but the condition is different from the one in the other method.
+# my_hash_splitting_method takes two arguments: (1) a hash that has integers
+#   for its values (ages, here) and (2) an integer (also an age, in this case).
+#   It splits the hash into two arrays, one containing the key-value pairs
+#   (as 2-element arrays) for which the value (age) is less than or equal to
+#   the "age" argument and one for everything else. Then it returns an array
+#   containing both of those arrays. The result is a 3-dimensional array.
+#   This method also takes advantage of #partition, but the condition is
+#   different from the one in the other method.
 
-
-
-# Release 1: Identify and describe the Ruby method you implemented. Teach your
-# accountability group how to use the methods.
-#
-#
-#
-
-
-# Release 3: Reflect!
-# What did you learn about researching and explaining your research to others?
-#
-#
-#
-#
