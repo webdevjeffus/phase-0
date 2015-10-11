@@ -90,19 +90,39 @@ SEE ABOVE
 #
 #
 
-# Person 2
+# Person 2 - Max Iniguez
 def my_array_modification_method!(source, thing_to_modify)
-  source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+  x = 0
+  while x < source.length
+    x += 1
+    if source[x].is_a? Integer
+      source[x] += thing_to_modify
+    end
+  end
+  source
 end
 
-def my_hash_modification_method!(source, thing_to_modify)
-  source.dup # This line is here to make sure all tests initially fail. Delete it when you begin coding.
+# def my_hash_modification_method!(source, num)
+#   source.replace(source.to_a.each{ |i| i[1] += num}.to_h)
+# end
+
+# Refactor:
+def my_hash_modification_method!(source, num)
+  source.each { |key, val| source[key] += num }
 end
 
 # Identify and describe the Ruby method(s) you implemented.
-#
-#
-#
+# For my array method, I honestly couldn't think of a better way to do it than
+# with a while loop. I tried .each every way I could think, but in the end, just like
+# with the .each_value for my hash method, it didn't actually collect the values.
+# I did however discover the Object#is_a? method which helped crack the first
+# part of the problem. Once the program could identify which elements of my array were
+# integers, it was fairly easy to iterate over the array for any integers in it. The methods
+# I used in the hash method (at least in my initial solution) were Hash#replace, Hash#to_a, and Array#to_h.
+# This helped me create an array of the values from my hash, add a number to each, then feed it back
+# into a hash, which overwrote the original hash using Hash#replace (thus remaining destructive). The refactor, with
+# help from Steven, was actually much simpler, and didn't require anything more than the Hash#each
+# method. Overall, not many actual new methods were required after refactoring.
 
 
 # Person 3 - Jeff George
