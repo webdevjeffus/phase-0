@@ -6,6 +6,7 @@ def create_acct_groups(list)
   # Refactored solution;
   # Uses #each_slice(5).to_a to eliminate need for #allocate
   groups = list.shuffle.each_slice(5).to_a
+  # Balance groups if more than one group, AND last group has 1,2 or 3 members
   balance_groups(groups) if groups.length > 1 && (1..3).include?(groups[-1].length % 5)
   return groups
 end
@@ -37,7 +38,8 @@ end
 #   shift_member(groups, -4, -1) if groups[-1].length  <= 3
 # end
 
-
+# Refactored #balance_groups;
+# Handles lists of all sizes; groups of 6,7,8,11 are special cases
 def balance_groups(groups)
   if groups.flatten.count >= 12
     shift_member(groups, -2, -1) if groups[-1].length  <= 3
