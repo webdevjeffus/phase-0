@@ -26,7 +26,14 @@ def my_array_finding_method(source, thing_to_find)
   return output_array
 end
 
-my_array_finding_method(i_want_pets, "want") # to test
+
+# One-line solution using Array#select, added after deadline
+def my_array_finding_method(source, thing_to_find)
+  source.select{|i| i.to_s.include?(thing_to_find)}
+end
+
+
+my_array_finding_method(i_want_pets, "t") # to test
 
 =begin
 my_array_finding_method:
