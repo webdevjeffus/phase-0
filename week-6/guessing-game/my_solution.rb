@@ -5,7 +5,7 @@
 
 
 # I worked on this challenge by myself.
-# I spent [#] hours on this challenge.
+# I spent 3 hours on this challenge, including reading and research.
 
 # Pseudocode ==================================================================
 
@@ -65,12 +65,12 @@ end
 # Refactored Solution =========================================================
 # Syntax for conditionals has been streamlined, but logic is unchanged.
 
+
 class GuessingGame
 
   def initialize(answer)
     raise ArgumentError, "Please enter an integer." unless answer.is_a? Integer
     @answer = answer
-    @guess = nil
   end
 
   def guess(guess)
@@ -87,8 +87,11 @@ class GuessingGame
 end
 
 
-# Game Runner Code ============================================================
 
+# Game Runner Code ============================================================
+# Used for playing game; must comment out for rspec
+
+=begin
 game = GuessingGame.new rand(100)
 last_guess  = nil
 last_result = nil
@@ -105,11 +108,11 @@ until game.solved?
 end
 
 puts "#{last_guess} was correct!"
+=end
 
-=begin
 
 # Reflection ==================================================================
-
+=begin
 How do instance variables and methods represent the characteristics and
 behaviors (actions) of a real-world object?
 
@@ -133,10 +136,10 @@ starting fresh every time you touch it.
 Explain how to use flow control. Did you have any trouble using it in this
 challenge? If so, what did you struggle with?
 
-This challenge is all about flow control using conditionals (ifs and if/elses).
-The #guess and #solved? methods compare the player's guess to the correct
-answer using conditional statements, and return their results. The instructions
-for the challenge were clear, and structuring the conditionals to provide the
+This challenge is all about flow control using conditionals (ifs and
+if/elses). The #guess and #solved? methods compare the player's guess to the
+correct answer using conditional statements, and return their results. The
+instructions for the challenge were clear, and structuring the conditionals to provide the
 correct results was not difficult. In my initial solution, I used "long-form"
 if/elsif/else statements, but in my refactored solution, I changed them to a
 more concise, one-line format.
@@ -153,8 +156,7 @@ improvement in memory usage and performance speed. Second, symbols are
 immutable--that is, once the program is running, they can't be changed, whereas
 the value of strings can be manipulated during runtime.
 
-I'm pretty sure the
-
-
+I'm pretty sure the reason to use symbols here is their immutability--we have no
+reason to change the text for high, correct, or low during the game. If there's a better reason, I didn't find it reading Rubyist.
 
 =end
