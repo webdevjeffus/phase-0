@@ -1,13 +1,8 @@
 # Release 4:
 
-# refactor this code to move method assignments to attr_ attributes. Like we did with age. Let's pare down the superfluous code.
-
-# Your Code Here:
-
 class Profile
-# first let's finish refactoring this code
-# note that there is a way to add all of the variables like :age on one line, how would we do that?
-  attr_accessor :age
+
+  attr_accessor :age, :name, :occupation
 
   def initialize
     @age = 27
@@ -25,21 +20,24 @@ class Profile
     puts
   end
 
-  def what_is_name
-    @name
-  end
-
-  def change_my_name=(new_name)
-    @name = new_name
-  end
-
-  def what_is_occupation
-    @occupation
-  end
-
-  def change_my_occupation=(new_occupation)
-    @occupation = new_occupation
-  end
-
-
 end
+
+
+# Driver code ========================================
+
+instance_of_profile = Profile.new
+instance_of_profile.print_info
+
+puts "---------------------------"
+
+10.times do
+  sleep 0.1
+  print "."
+end
+puts
+
+instance_of_profile.age = 28
+instance_of_profile.name = "Taylor"
+instance_of_profile.occupation = "Rare Coin Trader"
+
+instance_of_profile.print_info
