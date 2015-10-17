@@ -214,16 +214,10 @@ class BetterBingo
       raw_board[i].each_index { |j| raw_board[i][j] += (i * 15) }
     end
 
-    # Flip board on diagonal so that rows become columns
-    flipped_board = [ [], [], [], [], [] ]
-    raw_board.each_index do |i|
-      raw_board.each_index do |j|
-        flipped_board[i][j] = raw_board[j][i]
-      end
-    end
+    # Switch rows and columns, so columns become sorted by ranges
+    @bingo_board = raw_board.transpose
 
-    flipped_board[2][2] = "XX"  # Cover center free space
-    @bingo_board = flipped_board
+    @bingo_board[2][2] = "XX"  # Cover center free space
     self.display_board
     return @bingo_board
   end
@@ -241,19 +235,21 @@ class BetterBingo
       col = "I" if @call[0] == 1
       col = "N" if @call[0] == 2
       col = "G" if @call[0] == 3
-      col = "O" if @call[0] == 4
+      col = "O" if @call[0] >= 4
       puts "The call is #{col}-#{@call[1]}."
     end
 
-    print "__B__I__N__G__O_\n"
+    print "   B  I  N  G  O\n"
+    print  "+----------------+\n"
     @bingo_board.each_index do |i|
+      print "|"
       @bingo_board.each_index do |j|
         print " " if @bingo_board[i][j].to_s.length == 1
         print " " + @bingo_board[i][j].to_s
       end
-      print "\n"
+      print " |\n"
     end
-    print "\n"
+    print "+----------------+\n\n"
   end
 
 
@@ -309,8 +305,7 @@ class BetterBingo
     num.times do
       self.take_turn
       if self.win_game?
-        puts "BINGO!"
-        puts "You won in #{@turn} turns!"
+        puts "BINGO!\nYou won in #{@turn} turns!"
         break
       end
     end
@@ -328,5 +323,105 @@ new_game = BetterBingo.new
 new_game.play_turns(75)
 
 
-#Reflection
+=begin ========================================================================
 
+# Reflection
+
+# How difficult was pseudocoding this challenge? What do you think of your pseudocoding style?
+
+Basically, I just try to break the problem down into the smallest possible
+steps, then explain logically how to accomplish them in an algorithmic way. I
+like the style I'm evolving--which borrows from the DBC pseudocoding video as
+well as the "pseudocode-to-code" approach Chris Pine demonstrates in "Learn to
+Program"--because it converts readily into working code, sometimes on a
+line-for-line basis. Some of my reviewers have commented that my pseudocode
+reads too much like "real" code, but others have said that it is clear and
+readable to them. Personally, I feel that my pseudocode reads like computer
+code, hopefully in a language-agnostic way, because I'm trying to think about
+the problem in algorithmic terms. I'm fairly confident that my pseudocode
+could be coded in Python or Javascript almost as easily as it could in Ruby,
+although I'm sure it's developing a Rubyist bias as time goes by and I get
+closer and closer to the Ruby way of doing things.
+
+
+# What are the benefits of using a class for this challenge?
+
+Using a class for this challenge lets the methods share easy access the
+important variables necessary to run the game. It also provides an almost
+intangible organizational structure to the program that it might not have if
+it were made up of global variables and "loose" methods.
+
+
+# How can you access coordinates in a nested array?
+
+Coordinates in a table stored as a nested array are accessed using bracket
+notation: array_name[row_index][column_index]. Thinking in terms of x and y for
+a nested-array table is confusing, because the first index actually indicates
+the vertical position, or y-coordinate, while the second index indicates the horizontal position, or x-coordinate. Thus, in x-y terms, the bracketed indexes
+are [y][x], which feels odd to me. Therefore, I just try to think of them in
+terms of [row][col], which is more intuitive to me.
+
+
+What methods did you use to access and modify the array?
+
+In almost every case in this project, I accessed the coordinates in the nested
+array using nested Array#each_index calls, which is really just the Ruby way of
+doing FOR loops with a counter that equals the array lengths. Perhaps there's
+some killer method for accessing values in a nested-array table, but I didn't
+find it.
+
+I did find two new, useful methods when writing and refactoring the BetterBingo#make_board method, though:
+* Array#sample(number) returns a new array made up of (number) items randomly
+chosen from the receiver array. I used this to pull five values for each column
+on the board out of the possible 15 values for that column.
+* Array#transpose switches the rows and columns in a two-dimensional array.
+This allowed me to set up the values in each column within appropriate ranges
+by working with them first as rows. Once the rows were populated with numbers
+in the appropriate ranges, I simply called #transpose on the 2-d array to
+convert the rows into columns, and vice versa! (I had originally written
+another nested #each_index block which reversed the indexes of each array
+element, which was about 5 or 6 lines long; #transpose let me replace that
+code with a single method-call.)
+
+
+How did you determine what should be an instance variable versus a local
+variable?
+
+There were four variables I needed to be able to access from any point in the
+program: call, calls, turn, and bingo_board. The best way to make that
+possible was to designate all four of them as instance variables when
+initializing the game object. There are several other variables used in many
+methods in the program, but none of them were needed beyond the run of a single
+method call, nor was their value ever passed to another method, so they were
+handled as variables local to each method.
+
+
+What do you feel is most improved in your refactored solution?
+
+When I set out to write the refactored solution, I wanted to make a version of
+bingo that would randomly generate a legal board, play a whole game without
+ever calling the same space twice, and know when the game had been won with an
+actual, five-in-a-row bingo. The final, refactored version above will do all
+of those things. To be 100% sure you win, set the #play_turns call in the
+driver code to 75--there are only 75 possible values on a legal bingo board,
+and a game with 75 turns will eventually call every single one of them. In
+practice, most games are won with 45-55 turns of play, although I've seen
+games won in 12 calls, or last until well into the 60s.
+
+The reason that live bingo games run by ladies' auxiliary at the church don't
+go 50 turns every time is that _someone_ in the room always has the lucky card
+that wins 20 or 30 turns--just not you. With no competition, you _will_ win...
+eventually. An obvious next step would be to have the game make bingo cards for
+several rival players, and give them an equal chance to win the game with a
+bingo.
+
+I'd work on this if computer bingo were actually any fun, but it turns out
+that it's not. The only element of skill "real" bingo is being alert enough
+not to miss your numbers when they're called; apart from that, it's all luck.
+We've written this game so that the computer covers your numbers for you automatically, and never misses a one, so the game is as much fun as a slot
+machine that pays nothing even when you hit the jackpot. If I'm going to put
+more than one day's work into a computer game, I'd like it to be one that's
+actually fun to play!
+
+
+=end
