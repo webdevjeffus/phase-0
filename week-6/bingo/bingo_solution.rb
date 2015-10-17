@@ -115,7 +115,6 @@ new_game = BingoBoard.new(board)
 
 # Refactored Solution - A Better Bingo Game
 
-
 =begin Pseudocode for changes from/additions to Initial Solution
 
 NOTE: For this refactor, I pseudocoded each new or changed method as I
@@ -195,6 +194,8 @@ PLAY TURNS - takes an INTEGER as argument
 
 =end # Pseudocode
 
+
+# Refactored Code
 
 class BetterBingo
 
@@ -327,7 +328,8 @@ new_game.play_turns(75)
 
 # Reflection
 
-# How difficult was pseudocoding this challenge? What do you think of your pseudocoding style?
+# How difficult was pseudocoding this challenge? What do you think of your
+pseudocoding style?
 
 Basically, I just try to break the problem down into the smallest possible
 steps, then explain logically how to accomplish them in an algorithmic way. I
@@ -357,7 +359,8 @@ it were made up of global variables and "loose" methods.
 Coordinates in a table stored as a nested array are accessed using bracket
 notation: array_name[row_index][column_index]. Thinking in terms of x and y for
 a nested-array table is confusing, because the first index actually indicates
-the vertical position, or y-coordinate, while the second index indicates the horizontal position, or x-coordinate. Thus, in x-y terms, the bracketed indexes
+the vertical position, or y-coordinate, while the second index indicates the
+horizontal position, or x-coordinate. Thus, in x-y terms, the bracketed indexes
 are [y][x], which feels odd to me. Therefore, I just try to think of them in
 terms of [row][col], which is more intuitive to me.
 
@@ -370,7 +373,8 @@ doing FOR loops with a counter that equals the array lengths. Perhaps there's
 some killer method for accessing values in a nested-array table, but I didn't
 find it.
 
-I did find two new, useful methods when writing and refactoring the BetterBingo#make_board method, though:
+I did find two new, useful methods when writing and refactoring the
+BetterBingo#make_board method, though:
 * Array#sample(number) returns a new array made up of (number) items randomly
 chosen from the receiver array. I used this to pull five values for each column
 on the board out of the possible 15 values for that column.
@@ -418,7 +422,8 @@ bingo.
 I'd work on this if computer bingo were actually any fun, but it turns out
 that it's not. The only element of skill "real" bingo is being alert enough
 not to miss your numbers when they're called; apart from that, it's all luck.
-We've written this game so that the computer covers your numbers for you automatically, and never misses a one, so the game is as much fun as a slot
+We've written this game so that the computer covers your numbers for you
+automatically, and never misses a one, so the game is as much fun as a slot
 machine that pays nothing even when you hit the jackpot. If I'm going to put
 more than one day's work into a computer game, I'd like it to be one that's
 actually fun to play!
