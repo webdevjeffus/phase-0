@@ -1,35 +1,20 @@
-# Class Warfare, Validate a Credit Card Number
+# Challenge 6.7 - Validate a Credit Card Number
+# By Jeff George and Armani Saldana
+# 10/18/15 for DBC Phase 0
+
+# We spent 1.75 hours coding for this challenge.
+# I spent 1.75 hours reflecting on this challenge, and doing some fine-tuning
+#     to the refactored solution.
 
 
-# I worked on this challenge [by myself, with: ].
-# I spent [#] hours on this challenge.
-
-=begin
-For this challenge, you will need to break down the algorithm into the following steps. You will probably want to break these down into individual methods that are called when you run the #check_card method.
-
-Starting with the second to last digit, double every other digit until you reach the first digit.
-
-Sum all the untouched digits and the doubled digits (doubled digits need to be broken apart, 10 becomes 1 + 0).
-
-If the total is a multiple of ten, you have received a valid credit card number!
-
-Example given 4563 9601 2200 1999
-Origin: 4   5   6   3   9   6   0   1   2   2   0   0   1   9   9   9
-Step 1: 8   5  12   3  18   6   0   1   4   2   0   0   2   9  18   9
-Step 2: 8 + 5 + 1 + 2 + 3 + 1 + 8 + 6 + 0 + 1 + 4 + 2 + 0 + 0 +2+ 9 + 1 + 8 + 9
-Step 3: 70 (total above) % 10 == 0
-Step 4: Profit
-Your class will need to return true or false when you call the #check_card method. Your class needs to be initialized with a credit card number that is exactly 16 digits -- otherwise you should receive an ArgumentError.
-=end
-
-
-# Pseudocode
+# Pseudocode ==================================================================
 
 # Input: 16-digit credit card number
 # Output: boolean value based on whether the card number is valid
-# Steps:
 
+# Steps:
 =begin
+
 INITIALIZE(card_number)
   RAISE ERROR if card_number is more than 16-digits long
   SET instance variable @card_num = card_number
@@ -48,7 +33,6 @@ CHECK SUM
   SUM all the digits
   IF sum modulus 10 equals 0, return true
   ELSE return false
-
 
 CHECK_CARD
   PREPARE NUMBER
@@ -110,6 +94,7 @@ class CreditCard
 
 end
 
+# Driver code for Initial Solution --------------------------------------------
 
 # card = CreditCard.new(4408041234567901)
 #
@@ -117,11 +102,9 @@ end
 # p card.check_card
 
 
-# Refactored Solution
+# Refactored Solution =========================================================
 
 class CreditCard
-
-  attr_reader :card_num
 
   def initialize(card_num)
     unless card_num.to_s.length == 16
@@ -131,20 +114,24 @@ class CreditCard
   end
 
 
-  def sum_digits(array)
-    array = array.map.reduce(:+)
-  end
-
-
-  def check_sum
-    sum_digits(@card_num) % 10 == 0 ? true : false
-  end
-
+# Helper Methods ------------------------------------------
 
   def digits_to_int(array)
     array.each_index { |i| array[i] = array[i].to_i }
   end
 
+
+  def sum_digits(array)
+    array = array.reduce(:+)
+  end
+
+
+  def valid_num?
+    sum_digits(@card_num) % 10 == 0 ? true : false
+  end
+
+
+# Primary Methods -----------------------------------------
 
   def prepare_number
     @card_num = @card_num.to_s.split(//).reverse
@@ -157,8 +144,7 @@ class CreditCard
      @card_num[i] += @card_num[i] if i.odd?
      if @card_num[i] >= 10
        @card_num[i] = @card_num[i].to_s.split(//)
-       digits_to_int(@card_num[i])
-       @card_num[i] = sum_digits(@card_num[i])
+       @card_num[i] = sum_digits( digits_to_int(@card_num[i]) )
      end
    end
   end
@@ -167,12 +153,13 @@ class CreditCard
   def check_card
     prepare_number
     double_digits
-    check_sum
+    valid_num?
   end
-
 
 end
 
+
+# Driver Code for Refactored Solution -----------------------------------------
 
 card = CreditCard.new(4408041234567901)
 
@@ -180,9 +167,52 @@ p card
 p card.check_card
 
 
+# Reflection ==================================================================
+=begin
+
+What was the most difficult part of this challenge for you and your pair? -----
+
+Working out the pseudocode from the instructions was very straightforward, as
+was coding our initial solution from the pseudocode. In refactoring, we first
+looked for opportunities to streamline the code by reducing conditionals and
+iterations to single-line forms. After that, we looked for places where we had
+repeated the same code on multiple lines, and wrote helper methods to replace
+them in the "primary" methods. The only real difficulty we encountered, apart
+from basic debugging of minor errors, was in attempting to write a helper
+method to replace the nearly-identical code on lines 136 and 145. Every attempt
+we made raised a Type error, and we were never able to figure out what was
+causing the problem; ultimately, we decided that helper method just wasn't
+meant to be, and declared ourselves done.
 
 
+What new methods did you find to help you when you refactored? ----------------
+
+Methods that were new to me in this challenge were:
+
+* String#split - I was familiar with the general concept of a built-in
+    string-splitting method from Python, but with the Ruby version, it's
+    necessary to provide a reg ex as an argument if you want to split the
+    array into single characters.
+* Fixnum#even? and #odd? - These methods are simple and obvious, but I'd never
+    used them before. Armani had them memorized, however, and popped them out
+    before I could write an loop with a condition to check each number in the
+    array for % 2. Very handy.
+* Enumerable#reduce - We used this to sum all the integers in an array. As
+    near as I can tell, #reduce attempts to squish all the values in the
+    enumerable into a single value, by applying the code in the argument to
+    each member. When we passed it the symbol :+, we told it to add each
+    member to the sum of the members before it in the array; by the time it
+    got to the end of the array, it returned the sum of all the members of
+    the array as an integer.
 
 
+What concepts or learnings were you able to solidify in this challenge? -------
 
-# Reflection
+We found the challenge to be pretty straightforward. I'd say my main takeaway
+was practice with the process of creating helper methods to streamline and
+clarify our code. I have a vague sense that we should have been able to
+improve the iteration strategy in the #double_digit method, but I just can't
+come up with a better way to do it.
+
+
+=end
