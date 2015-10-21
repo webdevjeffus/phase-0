@@ -1,0 +1,98 @@
+eloquent.txt
+
+Introduction
+
+Did you learn anything new about JavaScript or programming in general?
+
+Not really--I'd read Eloquent Javascript (or at least half of it, to be honest) before applying to DBC, and had covered a lot of this origins-of-programming material in other tutorials, videos, and books as well.
+
+Are there any concepts you feel uncomfortable with?
+
+Not in this chapter. As I said, most of this was already familiar to me. I find the historical and foundational material interesting, and the work done with computers back in the punch-card days impressive, but these topics are not daunting in any way.
+
+
+Chapter 1 - Values, Types, and Operators
+
+Identify two similarities and two differences between JavaScript and Ruby syntax with regard to numbers, arithmetic, strings, booleans, and various operators.
+
+Similarities:
+The syntax for performing arithmetic operations on numbers is the same in both languages (e.g. 5 + 8, or 3 * 12).
+Logical operators in both languages are the same ( && for "and", || for "or", ! for "not").
+
+Differences:
+There is only one data type for numbers in JS, while treats integers and floating-point decimals (floats) as separate types. Ruby further divides its Integer class into Fixnums and Bignums.
+In Ruby, we check for precise equality between two values using ==, but in JavaScript, the == operator will attempt to perform a type conversion before checking for equality. For example, in Ruby, "2" == 2 will return false, but in JS, == will automatically convert the number 2 into a string, and return true. In order to be sure that two values are equal and of the same type, we must use the === operator.
+
+
+Chapter 2 - Program Structure
+
+What is an expression?
+
+An expression is a fragment of code that can be evaluated to a single value, such as number or a string.
+
+What is the purpose of semicolons in JavaScript? Are they always required?
+
+JavaScript uses semicolons to mark the end of most statements. A statement can be as simple as a single expression, but statements generally cause some sort of action to be performed on one or more values. Semicolons are required to terminate most statements in JavaScript, and the exceptions to this rule are relatively rare; in general practice, we should use semicolons by default.
+
+What causes a variable to return undefined?
+
+A variable will return undefined if it has been declared but not yet assigned a value.
+
+Write your own variable and do something to it in the eloquent.js file.
+
+var num1 = 5;
+num1 * 4;
+
+What does console.log do and when would you use it? What Ruby method(s) is this similar to?
+
+console.log prints its argument to the JavaScript console built into all major web browsers. It is most analogous to Ruby's puts method.
+
+Write a short program that asks for a user to input their favorite food. After they hit return, have the program respond with "Hey! That's my favorite too!" Paste your program into the eloquent.js file.
+
+var favFood = prompt("What's your favorite food?", "");
+alert("Hey, " + favFood.toLowerCase() + " is my favorite food, too!");
+
+Describe while and for loops
+
+A while loop includes an expression (which must evaluate to a boolean value) in parentheses and a block of code in curly braces; it continuously repeats the execution of its block until its expression evaluates to false. A for loop is similar to a while loop, but its parentheses contain three expressions: the declaration of a counter variable; an expression that checks the counter in some way, and must evaluate to a boolean value; and an expression that updates the counter variable. A for loop continues to execute repeatedly, updating the counter with each loop, until the checking expression evaluates to false.
+
+What other similarities or differences between Ruby and JavaScript did you notice in this section?
+
+Conditional execution is essentially the same in both languages, except that JS uses "else if" where Ruby uses "elsif". Both languages use indentation to indicate the structure of the code. Both languages use the keyword "break" to break out of a loop. Both languages use the += operator (and similar operators for other arithmetic operations) to change the value of variables; JS also allows the ++ operator to increment the value by one, and -- to decrement it, while Ruby does not.
+
+Complete at least one of the exercises (Looping a Triangle, FizzBuzz, of Chess Board) in the eloquent.js file.
+
+// Looping a Triangle
+triangle_string = "";
+for ( var i = 0; i < 7; i++) {
+  triangle_string += "#";
+  console.log(triangle_string);
+}
+
+// Chess Board
+even_row = "##  ##  ##  ##  ";
+odd_row = "  ##  ##  ##  ##";
+for (var i = 0; i < 8; i++) {
+  if (i % 2 === 0) {
+    console.log(even_row);
+  }
+  else {
+    console.log(odd_row);
+  }
+}
+
+// FizzBuzz
+for (var i = 1; i <= 25; i++ ) {
+  if ( i % 3 == 0 && i % 5 == 0 ) { console.log("FizzBuzz") }
+  else if ( i % 3 == 0) { console.log("Fizz"); }
+  else if ( i % 5 == 0) { console.log("Buzz"); }
+  else console.log(i);
+}
+
+
+Chapter 3 - Functions
+
+What are the differences between local and global variables in JavaScript?
+When should you use functions?
+What is a function declaration?
+Complete the minimum exercise in the eloquent.js file.
