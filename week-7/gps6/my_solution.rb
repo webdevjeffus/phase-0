@@ -163,5 +163,14 @@ STATE_DATA.each do |state, state_data|
 end
 =end
 
+
+# Create and print VirusPredictor instances for all 50 states
+
+STATE_DATA.each do |state, state_data|
+  state = VirusPredictor.new( state, state_data[:population_density], state_data[:population] )
+  state.virus_effects
+end
+
+
 #=======================================================================
 # Reflection Section
