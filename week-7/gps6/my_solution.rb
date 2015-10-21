@@ -152,13 +152,16 @@ alabama.report_mortality
 =begin
 jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
 jersey.virus_effects
-
 california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
 california.virus_effects
-
 alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
 alaska.virus_effects
-
+# Create and print VirusPredictor instances for all 50 states
+STATE_DATA.each do |state, state_data|
+  state = VirusPredictor.new( state, state_data[:population_density], state_data[:population] )
+  state.virus_effects
+end
+=end
 
 
 # Create and print VirusPredictor instances for all 50 states
@@ -167,8 +170,7 @@ STATE_DATA.each do |state, state_data|
   state = VirusPredictor.new( state, state_data[:population_density], state_data[:population] )
   state.virus_effects
 end
-=end
+
 
 #=======================================================================
 # Reflection Section
-
