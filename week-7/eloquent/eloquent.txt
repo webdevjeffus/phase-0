@@ -93,6 +93,83 @@ for (var i = 1; i <= 25; i++ ) {
 Chapter 3 - Functions
 
 What are the differences between local and global variables in JavaScript?
+
+Global variables are declared outside of an function, and may be accessed from any point in the program. Local variables are created within a function, or as arguments passed into a function. Local variables are limited to the scope of the function in which they are created, which includes any additional functions created within that function.
+
 When should you use functions?
+
+Functions serve two purposes: they place code that is needed more than once in the program within a named variable that can be called from elsewhere in the program, improving the program's DRYness; and they wrap up potentially complex code within a tidy package with an intuitive name, allowing you to replace that code in the main flow of the program with a neat little "black box" which does exactly what you need with a single function call. Thus, functions should be created and used in two cases--when you are repeating identical or nearly identical code sequences in the program, or when you want to streamline the main program flow by removing a complex block of code and replace it with a simple call to a custom function with a short and descriptive name.
+
 What is a function declaration?
+
+A function declaration is one syntax for defining a function in JavaScript. It begins with the keyword "function", followed by the name of the new function, any parameters within parentheses, and the code block to be executed when the function is called. Alternately, a function may be defined using syntax similar to that used to declare variables, starting with the keyword var and the function name, an equals sign, the keyword function followed by parentheses containing the parameters, if any, and finally the code block. The two examples that follow define the exact same function:
+
+var square = function(x) { return x * x };
+
+function square(x) { return x * x };
+
+The advantage of a function declaration (second example) over a simple definition of the function as a variable (first example) is that function declarations are given priority over the normal top-to-bottom flow of the program. To put it another way, a normal, variable-style definition of a function must be placed in the code before the first time that function is called. A function declaration, on the other hand, is treated as if it were placed at the top of its scope, no matter where it is actually included in the code; thus, a function created through a declaration can be called earlier in the code than point at which it is actually declared. (Let's do the time warp...again!)
+
 Complete the minimum exercise in the eloquent.js file.
+
+function min(a, b) {
+  if (a < b) return a ;
+  else return b ;
+}
+
+
+Chapter 4 - Data Structures: Objects and Arrays
+
+Skip the sections on the Lycanthrope's log, Computing Correlations, and sections from Further Arrayology to the Global Object, but read the chapter summary.
+
+What is the difference between using a dot and a bracket to look up a property? Ex. array.max vs array["max"]
+
+The difference between dot and bracket notation for accessing properties is that when using dot notation (as in array.max), you must provide the exact name of the property. In many instances, this is fine--often, you do know the name of the property you're looking for. In some cases, though, you don't know or can't predict the name of the property you want to access, but you can provide an expression that will evaluate to that name. The most obvious example of this is also one of the commonest and most simple--accessing a particular element of an array in each iteration of a for loop. You have to write your code so that it will perform its work on all the elements in the array, in order, from first to last, when you don't even know how many elements the array is likely to have. You accomplish this by using a variable representing the for-loop's counter variable in bracket notation: array[counter]. If you used array.counter, the program would look for a property of the array _named_ counter, which it wouldn't find; but if you use array[counter], JS will evaluate counter as an expression, finding the integer value of the variable counter, which it will use as an index to access the value in the array at that index.
+
+Create an object called me that stores your name, age, three favorite foods, and a quirk in your eloquent.js file.
+
+me = {
+  name: "Jeff",
+  age: 50,
+  favFoods: [ "pizza", "chimichanga", "kan shao chicken" ],
+  quirk: "really resents green apple Skittles.",
+}
+
+
+What is a JavaScript object with a name and value property similar to in Ruby?
+
+I think this question is asking which Ruby object class is most similar to the JS object, and the answer to that question is a Ruby hash. Both Ruby hashes and JS objects are collections of key-value pairs, and they can be accessed in a similar fashion, using bracket notation. For example, you could set up a Ruby hash or a JavaScript object with the exact same syntax, like this:
+
+dinnerMenu = {
+  salad: "arugula",
+  mainCourse: ["steak au poivre", "baked potato", "sauteed green beans"],
+  dessertOptions: ["key lime pie", "cheesecake"],
+  price: 19.99,
+}
+
+And you can access the values in that collection with bracket notation, whether its a JS object or a Ruby hash:
+
+dinnerMenu[salad]
+=> arugula
+
+What you can't do in Ruby, that you can do in JS, is use dot notation to access a value:
+
+dinnerMenu.price
+=> 19.99
+
+
+Reflection
+
+What are the biggest similarities and differences between JavaScript and Ruby?
+
+The most important similarities between Ruby and JS are shared by most high-level programming languages, and include similar handling of values of various types, control flow mechanisms like loops and conditional branching, CS principles like algorithmic program flow and object-oriented design, and the use of visual structure on the text-editor screen (particularly indentation of code blocks) to represent the logical structure of the program.
+
+Many of the differences between JS and Ruby are simply syntactic--the almost ubiquitous use of semicolons to signify the end of statements in JS, for example, which Ruby generally avoids. Other differences lie deeper down, on a conceptual level. Everything in Ruby treated as an object that is a member of a class, and everything you can do handled as a method of some class or object; in JavaScript, there are no classes--there are only prototypes. I have only a vague understanding of the importance of this difference, but most experts agree that JS still qualifies as an object-oriented language despite its lack of traditional class-inheritance. However, a lot of the hot talk around JavaScript these days centers on its use as a functional programming language, as opposed to an object-oriented one, so I am inferring that JS's somewhat unconventional approach to objects and inheritance makes it more usable as a functional language than would be Ruby or another, more purely object-oriented langauge. I am sure that the significance of these differences will become more apparent over the next few weeks.
+
+Was some of your Ruby knowledge solidified by learning another language? If so, which concepts?
+
+It's a little early to tell if what I now know about Ruby was strengthened by this limited exposure to JavaScript. However, I can attest that I picked up Ruby more easily because I was already somewhat familiar with Python and JavaScript.
+
+How do you feel about diving into JavaScript after reading these chapters?
+
+I was already excited about getting (back) to JavaScript, because of its power to directly affect what you see on a webpage, massively expanding the interaction possible with vanilla HTML/CSS. These chapters were simply a refresher on JS structure and syntax for me, helping remember what I learned on my own earlier this summer.

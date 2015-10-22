@@ -3,14 +3,14 @@
 // Run this file in your terminal using `node my_solution.js`. Make sure it
 // works before moving on!
 
-// Program Structure ----------------------------------------------------------
+// Program Structure ==========================================================
 // Write your own variable and do something to it.
 
 var num1 = 5;
 num1 * 4;
 
 
-// Simple Program
+// Simple Program -------------------------------------------------------------
 
 var favFood = prompt("What's your favorite food?", "");
 alert("Hey, " + favFood.toLowerCase() + " is my favorite food, too!");
@@ -51,7 +51,23 @@ for (var i = 1; i <= 25; i++ ) {
 
 // Complete the `minimum` exercise.
 
+function min(a, b) {
+  if (a < b) return a ;
+  else return b ;
+}
 
 
-// Data Structures: Objects and Arrays
-// Create an object called "me" that stores your name, age, 3 favorite foods, and a quirk below.
+
+// Data Structures: Objects and Arrays ========================================
+
+// Create an object called "me" that stores your name, age, 3 favorite foods,
+// and a quirk below.
+
+me = {
+  name: "Jeff",
+  age: 50,
+  favFoods: [ "pizza", "chimichanga", "kan shao chicken" ],
+  quirk: "really resents green apple Skittles.",
+}
+
+
