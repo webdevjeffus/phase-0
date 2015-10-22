@@ -72,7 +72,8 @@ Did you approach the problem differently?
 I think the biggest difference was that we'd each solved the problem previously
 in another language. We started by comparing what we remembered of our solution
 algorithm from the previous challenge, chose a direction to pursue, and began
-to write language-agnostic pseudocode. After that, we set about coding from the pseudocode, where our biggest challenge was figuring out how to accomplish tasks
+to write language-agnostic pseudocode. After that, we set about coding from the
+pseudocode, where our biggest challenge was figuring out how to accomplish tasks
 in JavaScript that we already knew how to do in Ruby. We wound up doing a fair
 amount of reference-checking in mid-session (it was too rushed to realistically
 call it "research").
