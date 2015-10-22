@@ -1,0 +1,17 @@
+/* CSS for JavaScript Game */
+
+
+.game--board {
+  background-color: lightblue;
+  font-family: sans-serif;
+  max-width: 400px;
+  min-height: 400px;
+  margin: 0 auto;
+  border: 2px solid darkblue;
+}
+
+.game--title {
+  padding-top: 12px;
+  text-align: center;
+  margin: 0;
+}
