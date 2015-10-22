@@ -16,13 +16,40 @@ var terah = {
 // __________________________________________
 // Write your code below.
 
+var adam = {
+  name: "Adam",
+};
+
+var carson = {
+  name: "Carson",
+};
+
+var carter = {
+  name: "Carter",
+};
+
+var colson = {
+  name: "Colson",
+};
+
+var colton = {
+  name: "Colton",
+};
 
 
+terah.spouse = adam;
+terah.weight = 125;
+delete terah.eyeColor;
 
+adam.spouse = terah;
 
+terah.children = {};
+terah.children.carson = carson;
+terah.children.carter = carter;
+terah.children.colson = colson;
+terah.children.colton = colton;
 
-
-
+adam.children = terah.children;
 
 
 
