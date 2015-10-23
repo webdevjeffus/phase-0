@@ -281,8 +281,8 @@ var game = {
   winRound: " You win this round.",
   loseRound: " You lose this round.",
   winGameHead: "Congratulations!",
-  loseGameHead: "You've lost this game.",
-  winGameMsg: "You've won the game!",
+  loseGameHead: "You&rsquo;ve lost this game.",
+  winGameMsg: "You&rsquo;ve won the game!",
   loseGameMsg: "Better luck next time!",
   rockScissors: "Rock breaks scissors.",
   scissorsPaper: "Scissors cut paper.",
@@ -430,7 +430,7 @@ function checkForWin() {
     console.log("Player wins.");
     gameOverBox.setAttribute(
       "style",
-      "display: block; background-color: lightgreen; border: 2px darkgreen solid;"
+      "display: block; background-color: lightgreen; border-color: darkgreen;"
     );
     gameOverHead.innerHTML = game.winGameHead;
     gameOverMsg.innerHTML = game.winGameMsg;
@@ -439,7 +439,7 @@ function checkForWin() {
     console.log("Opponent wins.");
     gameOverBox.setAttribute(
       "style",
-      "display: block; background-color: rgb(256,164,164); border: 2px rgb(128,0,0) solid;"
+      "display: block; background-color: rgb(256,164,164); border-color: rgb(128,0,0);"
     );
     gameOverHead.innerHTML = game.loseGameHead;
     gameOverMsg.innerHTML = game.loseGameMsg;
@@ -449,6 +449,8 @@ function checkForWin() {
 
 function playAgain() {
   gameOverBox.setAttribute("style", "display: hidden;");
+  playByPlay.innerHTML = "Playing again?";
+  turnScore.innerHTML = "Choose your first move.";
   for (var i = 0; i < 3; i++) {
     playerPt[i].setAttribute("style", "background-color: #ddd;");
     oppoPt[i].setAttribute("style", "background-color: #ddd;");
