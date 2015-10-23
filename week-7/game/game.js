@@ -28,7 +28,9 @@ Functions:
 */
 
 
-/* Initial Code
+/****************************** INITIAL VERSION ******************************\
+\*      Open game.html to play; plays entirely through prompts and alerts.   *\
+
 var game = {
   drawRound: " This round is a draw.",
   winRound: " You win this round.",
@@ -122,7 +124,8 @@ else {
 }
 */
 
-// Refactored Code
+/*************************** INITIAL APP VERSION *****************************\
+\*     Open game.html to play; plays through interactive app in browser.     */
 
 "use strict";
 
@@ -148,6 +151,13 @@ var oppo = {
   score: 0
 };
 
+var playerMove = document.getElementById("playerMove");
+var oppoMove = document.getElementById("oppoMove");
+var playByPlay = document.getElementById("playByPlay");
+var turnScore = document.getElementById("turnScore");
+var playerPt = document.getElementsByClassName("playerPt");
+var oppoPt = document.getElementsByClassName("oppoPt");
+
 
 function getPlayerMove(move) {
   player.move = move;
@@ -157,55 +167,54 @@ function getPlayerMove(move) {
 }
 
 function getOppoMove() {
-  oppo.move = oppo.moves[Math.floor(Math.random() * 3)];
+  oppo.move = oppo.moves[ Math.floor(Math.random() * 3) ];
 }
 
 function resolveTurn() {
   switch (player.move) {
     case "rock":
-      document.getElementById("playerMove").innerHTML = "<i class='fa fa-hand-rock-o'></i>";
+      playerMove.innerHTML = "<i class='fa fa-hand-rock-o'></i>";
       break;
     case "paper":
-      document.getElementById("playerMove").innerHTML = "<i class='fa fa-hand-paper-o'></i>";
+      playerMove.innerHTML = "<i class='fa fa-hand-paper-o'></i>";
       break;
     default: // "scissors"
-      document.getElementById("playerMove").innerHTML = "<i class='fa fa-hand-scissors-o'></i>";
+      playerMove.innerHTML = "<i class='fa fa-hand-scissors-o'></i>";
       break;
     }
 
     switch (oppo.move) {
     case "rock":
-      document.getElementById("oppoMove").innerHTML = "<i class='fa fa-hand-rock-o'></i>";
+      oppoMove.innerHTML = "<i class='fa fa-hand-rock-o'></i>";
       break;
     case "paper":
-      document.getElementById("oppoMove").innerHTML = "<i class='fa fa-hand-paper-o'></i>";
+      oppoMove.innerHTML = "<i class='fa fa-hand-paper-o'></i>";
       break;
     default: // "scissors"
-      document.getElementById("oppoMove").innerHTML = "<i class='fa fa-hand-scissors-o'></i>";
+      oppoMove.innerHTML = "<i class='fa fa-hand-scissors-o'></i>";
       break;
     }
 
   if ( player.move === oppo.move ) {
-    document.getElementById("playByPlay").innerHTML =
-      ( "Both players chose " + player.move + ".");
-    document.getElementById("turnScore").innerHTML = ( game.drawRound );
+    playByPlay.innerHTML = ( "Both players chose " + player.move + ".");
+    turnScore.innerHTML = ( game.drawRound );
   }
 
   else {
     if ( player.move === "rock" ) {
       if ( oppo.move === "paper" ) {
-        document.getElementById("playByPlay").innerHTML = ( game.paperRock );
-        document.getElementById("turnScore").innerHTML = ( game.loseRound );
-        document.getElementsByClassName("oppoPt")[oppo.score].setAttribute(
+        playByPlay.innerHTML = ( game.paperRock );
+        turnScore.innerHTML = ( game.loseRound );
+        oppoPt[oppo.score].setAttribute(
           "style",
           "background-color: red; border: 2px darkred solid;"
         );
         oppo.score++;
       }
       else { // oppo.move === "scissors"
-        document.getElementById("playByPlay").innerHTML = ( game.rockScissors );
-        document.getElementById("turnScore").innerHTML = ( game.winRound );
-        document.getElementsByClassName("playerPt")[player.score].setAttribute(
+        playByPlay.innerHTML = ( game.rockScissors );
+        turnScore.innerHTML = ( game.winRound );
+        playerPt[player.score].setAttribute(
           "style",
           "background-color: green; border: 2px darkgreen solid;"
         );
@@ -214,18 +223,18 @@ function resolveTurn() {
     }
     else if ( player.move === "paper" ) {
       if ( oppo.move === "scissors" ) {
-        document.getElementById("playByPlay").innerHTML = ( game.scissorsPaper );
-        document.getElementById("turnScore").innerHTML = ( game.loseRound );
-        document.getElementsByClassName("oppoPt")[oppo.score].setAttribute(
+        playByPlay.innerHTML = ( game.scissorsPaper );
+        turnScore.innerHTML = ( game.loseRound );
+        oppoPt[oppo.score].setAttribute(
           "style",
           "background-color: red; border: 2px darkred solid;"
         );
         oppo.score++;
       }
       else { // oppo.move === "rock"
-        document.getElementById("playByPlay").innerHTML = ( game.paperRock);
-        document.getElementById("turnScore").innerHTML = ( game.winRound );
-        document.getElementsByClassName("playerPt")[player.score].setAttribute(
+        playByPlay.innerHTML = ( game.paperRock);
+        turnScore.innerHTML = ( game.winRound );
+        playerPt[player.score].setAttribute(
           "style",
           "background-color: green; border: 2px darkgreen solid;"
         );
@@ -234,18 +243,18 @@ function resolveTurn() {
     }
     else { // player.move === "scissors"
       if ( oppo.move === "rock" ) {
-        document.getElementById("playByPlay").innerHTML = ( game.rockScissors );
-        document.getElementById("turnScore").innerHTML = ( game.loseRound );
-        document.getElementsByClassName("oppoPt")[oppo.score].setAttribute(
+        playByPlay.innerHTML = ( game.rockScissors );
+        turnScore.innerHTML = ( game.loseRound );
+        oppoPt[oppo.score].setAttribute(
           "style",
           "background-color: red; border: 2px darkred solid;"
         );
         oppo.score++;
       }
       else { // oppo.move === "paper"
-        document.getElementById("playByPlay").innerHTML = ( game.scissorsPaper )
-        document.getElementById("turnScore").innerHTML = ( game.winRound );
-        document.getElementsByClassName("playerPt")[player.score].setAttribute(
+        playByPlay.innerHTML = ( game.scissorsPaper );
+        turnScore.innerHTML = ( game.winRound );
+        playerPt[player.score].setAttribute(
           "style",
           "background-color: green; border: 2px darkgreen solid;"
         );
@@ -255,18 +264,10 @@ function resolveTurn() {
   }
 }
 
-
 function checkForWin() {
-  if (player.score === 3) {
-    alert(game.winGame);
-  }
-  else if (oppo.score === 3) {
-    alert(game.loseGame);
-  }
-  else {
-
-  }
-
+  if (player.score === 3) { alert(game.winGame); }
+  else if (oppo.score === 3) { alert(game.loseGame); }
+  else { }
 }
 
 
