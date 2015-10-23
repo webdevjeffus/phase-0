@@ -10,6 +10,7 @@
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="game.css">
 
 
@@ -26,14 +27,14 @@
     <div class="player">
       <h4>Your move</h4>
       <div  class="move">
-        <p id="playerMove">?</p>
+        <p id="playerMove"><i class="fa fa-question"></i></p>
       </div>
     </div>
 
     <div class="opponent">
       <h4>Opponent's move</h4>
       <div class="move">
-        <p id="oppoMove">?</p>
+        <p id="oppoMove"><i class="fa fa-question"></i></p>
       </div>
     </div>
 
@@ -42,9 +43,9 @@
     </div>
 
     <div class="game--moves">
-      <button id="rock" class="game--moves_btn">Rock</button>
-      <button id="paper" class="game--moves_btn">Paper</button>
-      <button id="scissors" class="game--moves_btn">Scissors</button>
+      <button onclick="getPlayerMove('rock')" class="game--moves_btn">Rock</button>
+      <button onclick="getPlayerMove('paper')" class="game--moves_btn">Paper</button>
+      <button onclick="getPlayerMove('scissors')" class="game--moves_btn">Scissors</button>
     </div>
 
     <div class="game--report">
