@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="game.css">
-  <script type="text/javascript" src="./game.js"></script>
+
 
 
 </head>
@@ -25,20 +25,20 @@
 
     <div class="player">
       <h4>Your move</h4>
-      <div id="playerMove" class="move">
-        <p>?</p>
+      <div  class="move">
+        <p id="playerMove">?</p>
       </div>
     </div>
 
     <div class="opponent">
       <h4>Opponent's move</h4>
-      <div id="oppoMove" class="move">
-        <p>?</p>
+      <div class="move">
+        <p id="oppoMove">?</p>
       </div>
     </div>
 
     <div class="game--report">
-      <h3>Choose a move.</h3>
+      <h3 id="playByPlay">Choose a move.</h3>
     </div>
 
     <div class="game--moves">
@@ -48,28 +48,30 @@
     </div>
 
     <div class="game--report">
-      <h3>Good luck!</h3>
+      <h3 id="turnScore">Good luck!</h3>
     </div>
 
     <div class="player">
       <h4>Your score</h4>
       <div class="score-box">
-        <div id="player1Pt" class="score-box--pt"></div>
-        <div id="player2Pt" class="score-box--pt"></div>
-        <div id="player3Pt" class="score-box--pt"></div>
+        <div class="playerPt score-box--pt"></div>
+        <div class="playerPt score-box--pt"></div>
+        <div class="playerPt score-box--pt"></div>
       </div>
     </div>
 
     <div class="opponent">
       <h4>Opponent's score</h4>
       <div class="score-box">
-        <div id="oppo1Pt" class="score-box--pt"></div>
-        <div id="oppo2Pt" class="score-box--pt"></div>
-        <div id="oppo3Pt" class="score-box--pt"></div>
+        <div class="oppoPt score-box--pt"></div>
+        <div class="oppoPt score-box--pt"></div>
+        <div class="oppoPt score-box--pt"></div>
       </div>
     </div>
 
   </div>
+
+  <script type="text/javascript" src="./game.js"></script>
 
 </body>
 
