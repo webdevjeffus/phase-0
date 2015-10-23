@@ -163,25 +163,25 @@ function getOppoMove() {
 function resolveTurn() {
   switch (player.move) {
     case "rock":
-      document.getElementById("playerMove").innerHTML = "R";
+      document.getElementById("playerMove").innerHTML = "<i class='fa fa-hand-rock-o'></i>";
       break;
     case "paper":
-      document.getElementById("playerMove").innerHTML = "R";
+      document.getElementById("playerMove").innerHTML = "<i class='fa fa-hand-paper-o'></i>";
       break;
     default: // "scissors"
-      document.getElementById("playerMove").innerHTML = "S";
+      document.getElementById("playerMove").innerHTML = "<i class='fa fa-hand-scissors-o'></i>";
       break;
     }
 
     switch (oppo.move) {
     case "rock":
-      document.getElementById("oppoMove").innerHTML = "R";
+      document.getElementById("oppoMove").innerHTML = "<i class='fa fa-hand-rock-o'></i>";
       break;
     case "paper":
-      document.getElementById("oppoMove").innerHTML = "R";
+      document.getElementById("oppoMove").innerHTML = "<i class='fa fa-hand-paper-o'></i>";
       break;
     default: // "scissors"
-      document.getElementById("oppoMove").innerHTML = "S";
+      document.getElementById("oppoMove").innerHTML = "<i class='fa fa-hand-scissors-o'></i>";
       break;
     }
 
