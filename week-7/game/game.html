@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>JavaScript Game | Jeff George </title>
+  <title>Rock Paper Scissors | Jeff George </title>
   <meta name="description" content="Simple game created in JavaScript by Jeff George, a full-stack web developer based in New York, NY.">
   <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +21,12 @@
 <body>
 
   <div class="game--board">
+
+    <div id="gameOverBox" class="game-over">
+      <h2 id="gameOverHead">Congratulations!</h2>
+      <p id="gameOverMsg">You've won this game!</p>
+      <button onclick="playAgain()">Play Again</button>
+    </div>
 
     <h2 class="game--title">Rock-Paper-Scissors</h2>
 
@@ -43,9 +49,15 @@
     </div>
 
     <div class="game--moves">
-      <button onclick="getPlayerMove('rock')" class="game--moves_btn">Rock</button>
-      <button onclick="getPlayerMove('paper')" class="game--moves_btn">Paper</button>
-      <button onclick="getPlayerMove('scissors')" class="game--moves_btn">Scissors</button>
+      <button onclick="getPlayerMove('rock')" class="game--moves_btn">
+        <i class='fa fa-hand-rock-o'></i>
+      </button>
+      <button onclick="getPlayerMove('paper')" class="game--moves_btn">
+        <i class='fa fa-hand-paper-o'></i>
+      </button>
+      <button onclick="getPlayerMove('scissors')" class="game--moves_btn">
+        <i class='fa fa-hand-scissors-o'></i>
+      </button>
     </div>
 
     <div class="game--report">
