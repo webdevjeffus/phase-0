@@ -44,9 +44,32 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 12px;
 }
 
-.game-over>button {
+.btn {
+  text-align: center;
+  background-color: rgb(224, 224, 224);
+  border: 3px solid rgb(64,64,64);
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
+
+.btn:hover,
+.btn:active {
+  background-color: rgb(240,240,240);
+  cursor: pointer;
+}
+
+.btn:active {
+  position: relative;
+  left: 2px;
+  top: 2px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.game-over .btn {
   width: 100px;
   height: 40px;
+  padding: 8px;
+  margin: 0 auto;
   font-size: 14px;
   font-weight: bold;
 }
@@ -93,29 +116,31 @@ h1, h2, h3, h4, h5, h6, p {
   width: 50px;
   height: 50px;
   font-size: 24px;
+  margin: 0 6px;
+  padding: 9px;
+  display: inline-block;
 }
 
 .move {
   width: 75px;
   height: 75px;
   margin: 12px auto 0;
-  background-color: #ddd;
-  border: 2px solid darkblue;
-  border-radius: 10px;
+  background-color: darkblue;
 }
 
 .move>p {
-  margin: 12px auto;
-  font-size: 42px;
+  margin: 0 auto;
+  padding-top: 10px;
+  font-size: 48px;
   font-weight: bold;
-  color: #888;
+  color: white;
 }
 
 .score-box {
   width: 132px;
   height: 40px;
   margin: 0 auto;
-  border: 1px green dotted;
+  /*border: 1px green dotted;*/
 }
 
 .score-box--pt {
@@ -124,6 +149,7 @@ h1, h2, h3, h4, h5, h6, p {
   float: left;
   margin: 0 3px;
   background-color: #ddd;
-  border: 2px solid #888;
   border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.67);
+  box-shadow: -3px -3px 12px 0px rgba(0,0,0,0.6) inset, 2px 2px 2px -1px rgba(0,0,0,0.5);
 }

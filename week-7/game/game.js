@@ -366,7 +366,7 @@ function resolveTurn() {
         turnScore.innerHTML = ( game.loseRound );
         oppoPt[oppo.score].setAttribute(
           "style",
-          "background-color: red; border: 2px darkred solid;"
+          "background-color: red;"// border: 3px darkred solid;"
         );
         oppo.score++;
       }
@@ -375,7 +375,7 @@ function resolveTurn() {
         turnScore.innerHTML = ( game.winRound );
         playerPt[player.score].setAttribute(
           "style",
-          "background-color: green; border: 2px darkgreen solid;"
+          "background-color: green;"// border: 3px darkgreen solid;"
         );
         player.score++;
       }
@@ -386,7 +386,7 @@ function resolveTurn() {
         turnScore.innerHTML = ( game.loseRound );
         oppoPt[oppo.score].setAttribute(
           "style",
-          "background-color: red; border: 2px darkred solid;"
+          "background-color: red;"// border: 3px darkred solid;"
         );
         oppo.score++;
       }
@@ -395,7 +395,7 @@ function resolveTurn() {
         turnScore.innerHTML = ( game.winRound );
         playerPt[player.score].setAttribute(
           "style",
-          "background-color: green; border: 2px darkgreen solid;"
+          "background-color: green;"// border: 3px darkgreen solid;"
         );
         player.score++;
       }
@@ -406,7 +406,7 @@ function resolveTurn() {
         turnScore.innerHTML = ( game.loseRound );
         oppoPt[oppo.score].setAttribute(
           "style",
-          "background-color: red; border: 2px darkred solid;"
+          "background-color: red;"// border: 3px darkred solid;"
         );
         oppo.score++;
       }
@@ -415,7 +415,7 @@ function resolveTurn() {
         turnScore.innerHTML = ( game.winRound );
         playerPt[player.score].setAttribute(
           "style",
-          "background-color: green; border: 2px darkgreen solid;"
+          "background-color: green;"// border: 3px darkgreen solid;"
         );
         player.score++;
       }
@@ -428,21 +428,19 @@ function checkForWin() {
   console.log("checkForWin fired.");
   if (player.score === 3) {
     console.log("Player wins.");
-    gameOverBox.setAttribute( "style", "display: block;" );
-      //"style",
-      //"display: block; background-color: lightgreen; border: 2px darkgreen solid;"
-      //"display: block;"
-    //);
+    gameOverBox.setAttribute(
+      "style",
+      "display: block; background-color: lightgreen; border: 2px darkgreen solid;"
+    );
     gameOverHead.innerHTML = game.winGameHead;
     gameOverMsg.innerHTML = game.winGameMsg;
   }
   else if (oppo.score === 3) {
     console.log("Opponent wins.");
-    gameOverBox.setAttribute( "style", "display: block;" );
-      //"style",
-      // "display: block; background-color: rgb(256,164,164); border: 2px rgb(128,0,0) solid;"
-      //"display: block;"
-    //);
+    gameOverBox.setAttribute(
+      "style",
+      "display: block; background-color: rgb(256,164,164); border: 2px rgb(128,0,0) solid;"
+    );
     gameOverHead.innerHTML = game.loseGameHead;
     gameOverMsg.innerHTML = game.loseGameMsg;
   }
@@ -452,8 +450,8 @@ function checkForWin() {
 function playAgain() {
   gameOverBox.setAttribute("style", "display: hidden;");
   for (var i = 0; i < 3; i++) {
-    playerPt[i].setAttribute("style", "background-color: #ddd; border-color: #888;");
-    oppoPt[i].setAttribute("style", "background-color: #ddd; border-color: #888;");
+    playerPt[i].setAttribute("style", "background-color: #ddd;");
+    oppoPt[i].setAttribute("style", "background-color: #ddd;");
   }
   playerMove.innerHTML = ("<i class='fa fa-question'></i>");
   oppoMove.innerHTML = ("<i class='fa fa-question'></i>");
