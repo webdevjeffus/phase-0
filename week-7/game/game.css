@@ -1,5 +1,12 @@
 /* CSS for JavaScript Game */
+* {
+  box-sizing: border-box;
+}
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
 
 .game--board {
   background-color: lightblue;
@@ -7,11 +14,83 @@
   max-width: 400px;
   min-height: 400px;
   margin: 0 auto;
+  padding: 12px;
   border: 2px solid darkblue;
 }
 
 .game--title {
-  padding-top: 12px;
-  text-align: center;
+  padding: 0;
   margin: 0;
+  text-align: center;
+}
+
+
+.player,
+.opponent {
+  width: 49%;
+  padding: 12px;
+  text-align: center;
+  border: 1px red dotted;
+}
+
+.player {
+  float: left;
+}
+
+.opponent {
+  float: right;
+}
+
+.game--report {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  border: 1px red dotted;
+}
+
+.game--moves {
+  width: 100%;
+  min-height: 45px;
+  padding: 12px;
+  text-align: center;
+  border: 1px red dotted;
+}
+
+.game--moves_btn {
+  width: 60px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.move {
+  width: 75px;
+  height: 75px;
+  margin: 12px auto 0;
+  background-color: #ddd;
+  border: 2px solid darkblue;
+  border-radius: 10px;
+}
+
+.move>p {
+  margin: 12px auto;
+  font-size: 42px;
+  font-weight: bold;
+  color: #888;
+}
+
+.score-box {
+  width: 128px;
+  height: 40px;
+  margin: 0 auto;
+  border: 1px green dotted;
+}
+
+.score-box--pt {
+  width: 36px;
+  height: 36px;
+  float: left;
+  margin: 0 3px;
+  background-color: #ddd;
+  border: 2px solid #888;
+  border-radius: 6px;
 }

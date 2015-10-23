@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html>
-
 
 <head>
 
@@ -13,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="game.css">
+  <script type="text/javascript" src="./game.js"></script>
 
 
 </head>
@@ -25,18 +24,53 @@
     <h2 class="game--title">Rock-Paper-Scissors</h2>
 
     <div class="player">
-      <h3>Your move:</h3>
-    <div>
+      <h4>Your move</h4>
+      <div id="playerMove" class="move">
+        <p>?</p>
+      </div>
+    </div>
+
+    <div class="opponent">
+      <h4>Opponent's move</h4>
+      <div id="oppoMove" class="move">
+        <p>?</p>
+      </div>
+    </div>
+
+    <div class="game--report">
+      <h3>Choose a move.</h3>
+    </div>
+
+    <div class="game--moves">
+      <button id="rock" class="game--moves_btn">Rock</button>
+      <button id="paper" class="game--moves_btn">Paper</button>
+      <button id="scissors" class="game--moves_btn">Scissors</button>
+    </div>
+
+    <div class="game--report">
+      <h3>Good luck!</h3>
+    </div>
 
     <div class="player">
-      <h3>Opponent's move:</h3>
-    <div>
+      <h4>Your score</h4>
+      <div class="score-box">
+        <div id="player1Pt" class="score-box--pt"></div>
+        <div id="player2Pt" class="score-box--pt"></div>
+        <div id="player3Pt" class="score-box--pt"></div>
+      </div>
+    </div>
 
+    <div class="opponent">
+      <h4>Opponent's score</h4>
+      <div class="score-box">
+        <div id="oppo1Pt" class="score-box--pt"></div>
+        <div id="oppo2Pt" class="score-box--pt"></div>
+        <div id="oppo3Pt" class="score-box--pt"></div>
+      </div>
+    </div>
 
-  <div>
-
+  </div>
 
 </body>
-
 
 </html>
