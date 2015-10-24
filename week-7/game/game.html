@@ -31,17 +31,39 @@
     <h1 class="game--title">Rock Paper Scissors</h1>
 
     <div class="player">
-      <h4>Your move</h4>
-      <div  class="move">
+      <h3>You</h3>
+      <div class="move">
         <p id="playerMove"><i class="fa fa-question"></i></p>
       </div>
+
+      <div class="score-box">
+        <div class="playerPt score-box--pt"></div>
+        <div class="playerPt score-box--pt"></div>
+        <div class="playerPt score-box--pt"></div>
+      </div>
+
     </div>
 
     <div class="opponent">
-      <h4>Opponent&rsquo;s move</h4>
+      <h3>Opponent</h3>
       <div class="move">
         <p id="oppoMove"><i class="fa fa-question"></i></p>
       </div>
+
+      <div class="score-box">
+        <div class="oppoPt score-box--pt"></div>
+        <div class="oppoPt score-box--pt"></div>
+        <div class="oppoPt score-box--pt"></div>
+      </div>
+
+    </div>
+
+    <div class="game--report">
+      <h3 id="playByPlay">Choose a move.</h3>
+    </div>
+
+    <div class="game--report">
+      <h3 id="turnScore">Good luck!</h3>
     </div>
 
     <div class="game--moves">
@@ -56,16 +78,7 @@
       </div>
     </div>
 
-    <div class="game--report">
-      <h3 id="playByPlay">Choose a move.</h3>
-    </div>
-
-
-    <div class="game--report">
-      <h3 id="turnScore">Good luck!</h3>
-    </div>
-
-    <div class="player">
+<!--     <div class="player">
       <h4>Your score</h4>
       <div class="score-box">
         <div class="playerPt score-box--pt"></div>
@@ -82,7 +95,7 @@
         <div class="oppoPt score-box--pt"></div>
       </div>
     </div>
-
+ -->
   </div>
 
   <script type="text/javascript" src="./game.js"></script>

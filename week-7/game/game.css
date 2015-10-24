@@ -1,4 +1,4 @@
-/* CSS for JavaScript Game */
+/* CSS for Rock Paper Scissors Game */
 * {
   box-sizing: border-box;
 }
@@ -8,12 +8,11 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 0;
 }
 
-
-
 .game--board {
   background-color: rgba(224,224,224,1);
   font-family: sans-serif;
   max-width: 400px;
+  min-width: 320px;
   min-height: 420px;
   position: relative;
   margin: 0 auto;
@@ -27,11 +26,10 @@ h1, h2, h3, h4, h5, h6, p {
 .game-over {
   position: absolute;
   left: 10%;
-  top: 125px;
+  top: 240px;
   width: 80%;
-  height: 150px;
-  padding: 18px;
-
+  height: 135px;
+  padding: 12px;
   text-align: center;
   background-color: lightgreen;
   border: 4px solid darkgreen;
@@ -41,12 +39,12 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .game-over>h2 {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .game-over>p {
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .btn {
@@ -93,7 +91,6 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 12px;
   margin-bottom: 12px;
   text-align: center;
-  /*border: 1px red dotted;*/
 }
 
 .player {
@@ -109,7 +106,6 @@ h1, h2, h3, h4, h5, h6, p {
   text-align: center;
   padding-bottom: 3px;
   clear: both;
-  /*border: 1px red dotted;*/
 }
 
 .game--moves {
@@ -117,7 +113,6 @@ h1, h2, h3, h4, h5, h6, p {
   min-height: 45px;
   padding: 12px;
   text-align: center;
-  /*border: 1px red dotted;*/
 }
 
 .game--moves_btn {
@@ -126,17 +121,32 @@ h1, h2, h3, h4, h5, h6, p {
   font-size: 24px;
   margin: 0 6px;
   padding: 9px;
+  background-color: cornflowerblue;
+  color: white;
   display: inline-block;
+}
+
+.game--moves_btn:hover,
+.game--moves_btn:active {
+  background-color: lightsteelblue;
 }
 
 .move {
   width: 75px;
   height: 75px;
-  margin: 12px auto 0;
-  background-color: darkblue;
+  margin: 12px auto;
+  border: 1px solid rgba(0,0,0,0.6);
   border-radius: 3px;
-  box-shadow: -3px -3px 12px 0px rgba(0,0,0,0.6) inset,
+  box-shadow: -2px -2px 12px 0px rgba(0,0,0,0.6) inset,
               2px 2px 2px -1px rgba(0,0,0,0.5);
+}
+
+.player .move {
+  background-color: royalblue;
+}
+
+.opponent .move {
+  background-color: orange;
 }
 
 .move>p {
@@ -148,20 +158,31 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .score-box {
-  width: 132px;
+  width: 118px;
   height: 40px;
   margin: 0 auto;
-  /*border: 1px green dotted;*/
 }
 
 .score-box--pt {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   float: left;
   margin: 6px 3px;
-  background-color: #ddd;
+  background-color: #ccc;
   border-radius: 50%;
   border: 1px solid rgba(0,0,0,0.67);
   box-shadow: -3px -3px 12px 0px rgba(0,0,0,0.6) inset,
               2px 2px 2px -1px rgba(0,0,0,0.5);
+}
+
+
+@media screen and (max-width: 380px) {
+    .game--board>h1 {
+      font-size: 24px;
+    }
+
+    .game-over>h2 {
+      font-size: 19px;
+    }
+
 }
