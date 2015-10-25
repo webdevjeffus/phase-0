@@ -46,4 +46,37 @@ example, if the set is (1, 2, 3,   4, 5, 6), the MEDIAN will be 3.5.
 Additional information and examples for MEDIAN can be found at:
 https://www.mathsisfun.com/definitions/median.html
 
+
+===============================================================================
+=============================== FINAL SUMMARY =================================
+===============================================================================
+
+Test Output____________________________________________________________________
+
+group-project [group] :> node tests.js
+1. true
+2. true
+3. true
+4. true
+5. true
+6. true
+7. true
+8. true
+9. false
+
+/Users/webdevjeff15/DBC-ph0/phase-0/week-7/group-project/tests.js:79
+    throw "ERROR: " + message;
+                    ^
+ERROR: median should return the median value of all elements in an array with
+an even length.
+_______________________________________________________________________________
+
+Our code passed all tests except the last one, which tested for finding the
+MEDIAN of an array with an even number of elements. There was apparently a
+logical error in the line of code intended to find the two numbers in the
+middle of the set, which would be averaged to find the median of the set.
+
+Good effort, everyone! We'll get 'em next time!
+
+
 */
