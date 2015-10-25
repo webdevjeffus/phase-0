@@ -448,7 +448,7 @@ function checkForWin() {
 }
 
 function playAgain() {
-  gameOverBox.setAttribute("style", "display: hidden;");
+  gameOverBox.setAttribute("style", "display: none;");
   playByPlay.innerHTML = "Playing again?";
   turnScore.innerHTML = "Choose your first move.";
   for (var i = 0; i < 3; i++) {
