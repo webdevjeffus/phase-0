@@ -1,4 +1,4 @@
-/************** PAIR CHALLENGE 8.4:  Tally Votes in JavaScript ***************\
+/************** PAIR CHALLENGE 8.3:  Tally Votes in JavaScript ***************\
 by Jeff George, 10/28/15, for Dev Bootcamp, Phase 0
 
 I worked on this challenge with Peter Wiebe.
