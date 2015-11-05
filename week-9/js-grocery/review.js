@@ -32,7 +32,7 @@ method: remove item
 method: update item qty
 method: print list
 
-\*****************************************************************************/
+\*****************************************************************************\
 
 
 // INITIAL SOLUTION:
@@ -55,7 +55,7 @@ function List(name, date) {
     this.list[item] = qty;
   }
 
-  this.sumQty = function() {
+  this.sumItems = function() {
     var sum = 0;
     for( var item in this.list) {
       sum += this.list[item]
@@ -89,11 +89,11 @@ function List(name, date) {
   this.footer = function() {
     console.log('------------------------------')
     var leader = '';
-    var space = 25 - this.sumQty().toString().length;
+    var space = 25 - this.sumItems().toString().length;
     for( var i = 0; i < space; i++ ) {
       leader += '.';
     }
-    console.log('Total' + leader + this.sumQty().toString() );
+    console.log('Total' + leader + this.sumItems().toString() );
   }
 
   this.printList = function() {
@@ -106,19 +106,95 @@ function List(name, date) {
 
 }
 
+
+/*****************************************************************************\
+REFACTORED SOLUTION
+\*****************************************************************************/
+
+function List(name, date) {
+
+  this.name = name;
+  this.date = date;
+  this.list = {};
+
+  this.addItem = function(item, qty) {
+    console.log( 'Add ' + item + ' * ' + qty + '.');
+    this.list[item] = qty;
+  }
+
+  this.removeItem = function(item) {
+    console.log( 'Cancel ' + item + '.');
+    delete this.list[item];
+  }
+
+  this.updateItem = function(item, qty) {
+    console.log( 'Change ' + item + ' order to ' + qty + '.')
+    this.list[item] = qty;
+  }
+
+  this.sumItems = function() {
+    var sum = 0;
+    for( var item in this.list) {
+      sum += this.list[item]
+    }
+    return sum;
+  }
+
+// Print List Helper Functions
+
+  this.capitalize = function(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1)
+  }
+
+  this.line = function( width, leftCol, separator, rightCol ) {
+    var leader = '';
+    var space = width - (leftCol.length + rightCol.length);
+    for( var i = 0; i < space; i++ ) {
+      leader += separator;
+    }
+    return (leftCol + leader + rightCol);
+  }
+
+  this.header = function(width) {
+    console.log( this.line( width, 'List: ' + this.capitalize(this.name), ' ', this.date ) );
+    console.log( this.line( width, 'Items', ' ', 'Qty') );
+    console.log( this.line( width, '', '-', '') );
+  }
+
+  this.populateList = function(width) {
+    for( var item in this.list ) {
+      console.log( this.line( width, this.capitalize(item), '.', this.list[item].toString() ) );
+    }
+  }
+
+  this.footer = function(width) {
+    console.log( this.line( width, '', '-', '') );
+    console.log( this.line( width, 'Total', ' ', this.sumItems().toString() ) );
+  }
+
+  this.printList = function(width) {
+    console.log();
+    this.header(width);
+    this.populateList(width);
+    this.footer(width);
+    console.log();
+  }
+
+}
+
+
 var groceryList = new List('groceries', '11/04/15');
 
 groceryList.addItem('banana', 6);
 groceryList.addItem('apple', 5);
 groceryList.addItem('lobster', 1);
-console.log(groceryList);
 
-// groceryList.removeItem('apple');
-// console.log(groceryList);
+groceryList.printList(30);
 
-// groceryList.updateItem('banana', 12);
-// console.log(groceryList);
+groceryList.addItem('egg', 12);
+groceryList.addItem('hot dog', 8);
+groceryList.removeItem( 'lobster');
+groceryList.updateItem( 'apple', 8);
 
-//console.log(groceryList.name + '......' + groceryList.date);
+groceryList.printList(30);
 
-groceryList.printList();
