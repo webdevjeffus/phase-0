@@ -206,6 +206,8 @@ end
 
 require 'date'
 
+# Global Cohort class =========================================================
+
 class GlobalCohort
   attr_reader :p0_start_date, :name, :local_cohorts, :num_of_students
 
@@ -219,19 +221,12 @@ class GlobalCohort
     self.local_cohorts[city_key] = LocalCohort.new(city_string, start_date)
   end
 
+
+  # Roster methods for GlobalCohort Class______________________________________
+
   def add_student(first_name, last_name, local_cohort)
     self.local_cohorts[local_cohort].students.push Student.new(first_name, last_name, local_cohort)
-  end
-
-  def remove_student(first_name, last_name)
-    self.local_cohorts.each_key do |cohort|
-      local_cohorts[cohort].students.each do |student|
-        if student.first_name == first_name && student.last_name == last_name
-          local_cohorts[cohort].students.delete student
-          puts "#{first_name} #{last_name} has been removed from the #{local_cohorts[cohort].name} cohort."
-        end
-      end
-    end
+    puts "#{first_name} #{last_name} has been added to the #{local_cohorts[local_cohort].name} #{self.name} cohort."
   end
 
   def add_student_email(first_name, last_name, email)
@@ -240,19 +235,25 @@ class GlobalCohort
         if local_cohorts[cohort].students[student].first_name == first_name &&
               local_cohorts[cohort].students[student].last_name == last_name
           local_cohorts[cohort].students[student].email = email
-          puts "Email address added for #{first_name} #{last_name} in the the #{local_cohorts[cohort].name} cohort."
+          puts "Email address added for #{first_name} #{last_name}."
         end
       end
     end
   end
 
-  def get_email_list
-    email_list = []
+  def remove_student(first_name, last_name)
     self.local_cohorts.each_key do |cohort|
-      email_list << local_cohorts[cohort].get_email_list
+      local_cohorts[cohort].students.each do |student|
+        if student.first_name == first_name && student.last_name == last_name
+          local_cohorts[cohort].students.delete student
+          puts "#{first_name} #{last_name} has been removed from the #{self.name} cohort."
+        end
+      end
     end
-    return email_list
   end
+
+
+  # Cohort Info Methods for GlobalCohort Class_________________________________
 
   def immersive_start_date
     @p0_start_date + 63
@@ -285,6 +286,17 @@ class GlobalCohort
     return student_count
   end
 
+  def get_email_list
+    email_list = []
+    self.local_cohorts.each_key do |cohort|
+      email_list << local_cohorts[cohort].get_email_list
+    end
+    return email_list
+  end
+
+
+  # Cohort Report Methods for GlobalCohort Class_______________________________
+
   def display_cohort_info
     puts '=========================================='
     puts @name
@@ -297,13 +309,21 @@ class GlobalCohort
 
   def display_local_cohorts_info
     self.local_cohorts.each_key do |local_cohort|
+      #puts '=========================================='
       local_cohorts[local_cohort].display_cohort_info
+      puts '------------------------------------------'
       local_cohorts[local_cohort].display_student_info
+      puts '------------------------------------------'
+      puts local_cohorts[local_cohort].get_email_list
+      puts ""
     end
   end
 
 end
 
+
+
+# Local Cohort Class ==========================================================
 
 class LocalCohort < GlobalCohort
   attr_reader :city, :p0_start_date
@@ -320,7 +340,6 @@ class LocalCohort < GlobalCohort
   end
 
   def display_student_info
-    puts '------------------------------------------'
     self.students.each { |student| puts student.first_name + ' ' + student.last_name }
   end
 
@@ -334,6 +353,9 @@ class LocalCohort < GlobalCohort
 
 end
 
+
+
+# Student Class ===============================================================
 
 class Student
   attr_reader :first_name, :last_name, :local_cohort
@@ -378,9 +400,40 @@ copperheads.remove_student("Bart", "Simpson")
 
 copperheads.display_cohort_info
 copperheads.display_local_cohorts_info
-puts "=========================================="
-puts "Copperheads Email Addresses:"
-puts copperheads.get_email_list
 
 
 ################################# Reflection #################################
+=begin
+
+# What concepts did you review in this challenge?
+
+This challenge reviewed the creation of classes and instances, and expanded
+into the inheritance of class attributes from super classes by subclasses. Most
+of the functionality in this program is provided through methods on the
+GlobalCohort class, including the creation of LocalCohort and Student objects,
+which enabled me to pass values into those objects from the GlobalCohort to
+which they belonged when they were instantiated. In the process, I found that
+by handling derived properties as methods--which are automatically inherited by
+subclasses--instead of instance variables--which are apparently _not_
+automatically inherited, I was able to cut down on the number of arguments
+that needed to be passed when creating new LocalCohorts and Students.
+
+
+# What is still confusing to you about Ruby?
+
+This challenge required me to use the Date class to handle the various dates
+associated with each cohort. Date handling by computer languages is often
+rather arcane, and Ruby turned out to be no exception. I managed to implement
+the date objects and date arithmetic that I needed to make this program work,
+but there's still much more that I have to learn about Ruby's Date and Datetime
+objects.
+
+
+# What are you going to study to get more prepared for Phase 1?
+
+Unfortunately, I'm out of time. I'd have liked to complete more of the Ruby
+review challenges, but there was just too much stuff outside of DBC that had
+to be wrapped up before we go onsite.
+
+
+=end
